@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% from "macros.html" import picture, icon with context %}
+{% block content %}
+<section class="page-head page-head--story">
+  <div class="page-head__topo" aria-hidden="true">{{ topo(seed=4) }}</div>
+  <div class="container story-intro">
+    <div>
+      <p class="kicker">{{ t('hist.kicker') }}</p>
+      <h1 class="display display--md">{{ t('hist.h1') }}</h1>
+      <p class="lead dropcap">{{ t('hist.p1') }}</p>
+    </div>
+    <div class="story-intro__media arch arch--tall">{{ picture('tradicion', sizes="(min-width: 900px) 38vw, 90vw", priority=true) }}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose-grid">
+    <div class="prose reveal">
+      <p>{{ t('hist.p2') }}</p>
+      <p>{{ t('hist.p3') }}</p>
+      <blockquote class="pull">{{ tr(biz.tagline) }}</blockquote>
+    </div>
+    <div class="prose-grid__media reveal">
+      {{ picture('cafetal-ladera', sizes="(min-width: 900px) 45vw, 92vw") }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--espresso" id="proceso">
+  <div class="story__topo" aria-hidden="true">{{ topo(seed=9) }}</div>
+  <div class="container">
+    <p class="kicker kicker--gold">{{ t('home.process_kicker') }}</p>
+    <h2 class="section-title section-title--light">{{ t('hist.process') }}</h2>
+    <ol class="timeline">
+      {% for step in process %}
+      <li class="timeline__item reveal">
+        <div class="timeline__media">{{ picture(step.photo, sizes="(min-width: 900px) 300px, 80vw") }}</div>
+        <div class="timeline__body">
+          <span class="step__num">{{ '%02d' % loop.index }}</span>
+          <h3>{{ tr(step.title) }}</h3>
+          <p>{{ tr(step.text) }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split__media reveal">{{ picture('casa-panoramica', sizes="(min-width: 900px) 50vw, 92vw") }}</div>
+    <div class="split__text reveal">
+      <p class="kicker">UNESCO · {{ biz.unesco_year }}</p>
+      <h2 class="section-title">{{ t('hist.unesco') }}</h2>
+      <p class="lead">{{ t('hist.unesco_text') }}</p>
+      <div class="btn-row">
+        <a class="btn btn--dark" href="{{ url_page('casa') }}">{{ t('cta.book') }}</a>
+        <a class="btn btn--outline" href="{{ url_page('cafe') }}">{{ t('cta.coffee') }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

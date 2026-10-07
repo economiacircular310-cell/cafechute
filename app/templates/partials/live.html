@@ -1,0 +1,12 @@
+{% from "macros.html" import icon with context %}
+<section class="live" aria-label="{{ t('live.title') }}" data-live data-lang="{{ lang }}">
+  <div class="container live__inner">
+    <p class="live__title"><span class="live__pulse" aria-hidden="true"></span>{{ t('live.title') }}</p>
+    <dl class="live__items">
+      <div class="live__item"><dt>{{ icon('clock') }}<span class="sr-only">{{ t('live.time') }}</span></dt><dd><span data-live-time>—</span> <span class="muted">{{ biz.locality }}</span></dd></div>
+      <div class="live__item" data-live-weather hidden><dt><span data-live-icon>{{ icon('cloud') }}</span><span class="sr-only">{{ t('live.weather') }}</span></dt><dd><span data-live-temp></span> · <span data-live-desc></span></dd></div>
+      <div class="live__item" data-live-sun hidden><dt>{{ icon('sunrise') }}<span class="sr-only">{{ t('live.sunrise') }}</span></dt><dd><span data-live-sunrise></span> <span class="muted">/</span> {{ icon('sunset') }} <span data-live-sunset></span></dd></div>
+      <div class="live__item{% if harvest.active %} live__item--harvest{% endif %}"><dt>{{ icon('cherry') }}<span class="sr-only">{{ t('live.season') }}</span></dt><dd>{{ harvest.label }}</dd></div>
+    </dl>
+  </div>
+</section>

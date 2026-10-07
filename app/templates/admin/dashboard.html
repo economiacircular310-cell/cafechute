@@ -1,0 +1,60 @@
+{% extends "admin/base.html" %}
+{% block title %}Solicitudes{% endblock %}
+{% block content %}
+<section class="adm-cards">
+  <a class="adm-card{% if not kind %} is-active{% endif %}" href="{{ url_for('admin.dashboard') }}">
+    <span>Todas</span><strong>{{ counts.values()|sum(attribute='total') }}</strong><em>{{ counts.values()|sum(attribute='nueva') }} nuevas</em></a>
+  {% for k, label in KIND_LABEL.items() %}
+  <a class="adm-card{% if kind == k %} is-active{% endif %}" href="{{ url_for('admin.dashboard', tipo=k) }}">
+    <span>{{ label }}</span><strong>{{ counts[k].total }}</strong><em>{{ counts[k].nueva }} nuevas</em></a>
+  {% endfor %}
+</section>
+
+<nav class="adm-filter">
+  Estado:
+  <a href="{{ url_for('admin.dashboard', tipo=kind) }}"{% if not status %} class="is-active"{% endif %}>todos</a>
+  {% for s, label in STATUS_LABEL.items() %}
+  <a href="{{ url_for('admin.dashboard', tipo=kind, estado=s) }}"{% if status == s %} class="is-active"{% endif %}>{{ label|lower }}</a>
+  {% endfor %}
+</nav>
+
+{% if not items %}
+<p class="adm-empty">No hay solicitudes todavía.</p>
+{% else %}
+<div class="adm-table-wrap">
+<table class="adm-table">
+  <thead><tr><th>#</th><th>Fecha (UTC)</th><th>Tipo</th><th>Cliente</th><th>Detalle</th><th>Valor est.</th><th>Estado</th></tr></thead>
+  <tbody>
+  {% for r in items %}
+  <tr class="st-{{ r.status }}">
+    <td>{{ r.id }}</td>
+    <td>{{ r.created_at[:16].replace('T', ' ') }}</td>
+    <td>{{ KIND_LABEL[r.kind] }}<br><small>{{ r.lang|upper }}</small></td>
+    <td><strong>{{ r.name }}</strong>
+      {% if r.phone %}<br><a href="https://wa.me/{{ r.phone|replace(' ', '')|replace('+', '')|replace('-', '') }}" target="_blank" rel="noopener">{{ r.phone }}</a>{% endif %}
+      {% if r.email %}<br><a href="mailto:{{ r.email }}">{{ r.email }}</a>{% endif %}</td>
+    <td>
+      {% set d = r.details %}
+      {% if r.kind == 'estancia' %}{{ d.room_name }} · {{ d.check_in }} → {{ d.check_out }} ({{ d.nights }} n) · {{ d.guests }} huésp.
+      {% elif r.kind == 'tour' %}{{ d.people }} personas · {{ d.date }}
+      {% elif r.kind == 'cafe' %}Grano: {{ d.qty.grano }} · Molido: {{ d.qty.molido }} · {{ d.city }}{% if d.address %} · {{ d.address }}{% endif %}
+      {% else %}Tema: {{ d.topic }}{% endif %}
+      {% if r.message %}<p class="adm-msg">{{ r.message }}</p>{% endif %}
+    </td>
+    <td>{{ cop(r.estimate) }}</td>
+    <td>
+      <form method="post" action="{{ url_for('admin.change_status', req_id=r.id) }}">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <select name="status" aria-label="Estado de la solicitud {{ r.id }}">
+          {% for s, label in STATUS_LABEL.items() %}<option value="{{ s }}"{% if r.status == s %} selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        <button type="submit">Guardar</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+:root { --espresso:#1f130d; --cream:#fbf7f0; --parchment:#f4ecdf; --cherry:#a3261e; --ink:#24170f; --muted:#76645a; --line:rgba(36,23,15,.13); }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--cream); color: var(--ink); font-size: 15px; }
+a { color: var(--cherry); }
+.adm-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--espresso); color: var(--cream); }
+.adm-head nav { display: flex; gap: 1rem; align-items: center; }
+.adm-head a { color: var(--cream); text-decoration: none; }
+.adm-head button { background: none; border: 1px solid rgba(251,247,240,.4); color: var(--cream); border-radius: 999px; padding: .35em .9em; cursor: pointer; }
+.adm-brand { font-family: Fraunces, Georgia, serif; font-size: 1.3rem; }
+.adm-brand span { color: #d9a441; }
+.adm-main { padding: 1.5rem; max-width: 1400px; margin: 0 auto; }
+.adm-login { max-width: 380px; margin: 10vh auto; background: #fff; padding: 2rem; border-radius: 16px; box-shadow: 0 20px 50px -25px rgba(0,0,0,.4); }
+.adm-login h1 { font-family: Fraunces, Georgia, serif; font-weight: 500; }
+.adm-login label { display: block; font-weight: 600; margin-bottom: .4rem; }
+.adm-login input { width: 100%; padding: .8em 1em; border: 1.5px solid var(--line); border-radius: 10px; font: inherit; margin-bottom: 1rem; }
+.adm-login button { width: 100%; padding: .9em; border: 0; border-radius: 999px; background: var(--cherry); color: #fff; font-weight: 600; cursor: pointer; }
+.adm-alert { background: #fbe9e6; color: #7d1a14; padding: .8rem 1rem; border-radius: 10px; }
+.adm-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .8rem; margin-bottom: 1.2rem; }
+.adm-card { display: grid; gap: .2rem; padding: 1rem 1.2rem; border-radius: 14px; background: var(--parchment); text-decoration: none; color: var(--ink); border: 2px solid transparent; }
+.adm-card.is-active { border-color: var(--espresso); }
+.adm-card strong { font-family: Fraunces, Georgia, serif; font-size: 2rem; font-weight: 500; }
+.adm-card em { font-style: normal; color: var(--cherry); font-size: .85rem; }
+.adm-filter { display: flex; gap: .6rem; align-items: center; margin-bottom: 1rem; color: var(--muted); }
+.adm-filter a { text-decoration: none; padding: .25em .7em; border-radius: 999px; }
+.adm-filter a.is-active { background: var(--espresso); color: var(--cream); }
+.adm-table-wrap { overflow-x: auto; background: #fff; border-radius: 14px; box-shadow: 0 10px 30px -20px rgba(0,0,0,.4); }
+.adm-table { width: 100%; border-collapse: collapse; }
+.adm-table th, .adm-table td { padding: .75rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.adm-table th { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); background: var(--parchment); }
+.adm-table tr.st-nueva td:first-child { box-shadow: inset 4px 0 0 var(--cherry); }
+.adm-table tr.st-cerrada { opacity: .55; }
+.adm-msg { margin: .4rem 0 0; padding: .5rem .7rem; background: var(--parchment); border-radius: 8px; white-space: pre-wrap; max-width: 40ch; }
+.adm-table select, .adm-table button { font: inherit; padding: .3em .5em; border-radius: 8px; border: 1px solid var(--line); }
+.adm-table button { background: var(--espresso); color: var(--cream); border: 0; cursor: pointer; margin-top: .3rem; }
+.adm-empty { padding: 3rem; text-align: center; color: var(--muted); }

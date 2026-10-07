@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+instance/
+assets/originals/
+.pytest_cache/
+
+# Despliegue
+dist/
+CREDENCIALES-ADMIN.txt
+
+# Entornos virtuales
+venv/
+env/
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Credenciales y claves
+.env.*
+!.env.example
+*.pem
+*.key

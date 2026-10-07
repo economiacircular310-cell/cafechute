@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "macros.html" import picture, icon with context %}
+{% block content %}
+<section class="page-head">
+  <div class="page-head__topo" aria-hidden="true">{{ topo(seed=8) }}</div>
+  <div class="container">
+    <p class="kicker">Casa Chute</p>
+    <h1 class="display display--md">{{ t('book.h1') }}</h1>
+    <p class="lead">{{ t('book.page_lead') }}</p>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="container">
+    {% include "partials/booking_form.html" %}
+  </div>
+</section>
+<section class="section section--parchment">
+  <div class="container mini-rooms">
+    {% for r in rooms %}
+    <a class="mini-room" href="{{ url_page('reservar', room=r.id) }}#reserva">
+      <span class="mini-room__media">{% if r.photos %}{{ picture(r.photos[0], sizes="200px") }}{% else %}{{ dandelion(cls="dandelion dandelion--soon") }}{% endif %}</span>
+      <span class="mini-room__name">{{ tr(r.name) }}</span>
+      <span class="muted small">{{ t('from') }} {{ cop(r.solo) }} · {{ t('guests_up_to', n=r.capacity) }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

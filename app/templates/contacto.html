@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% from "macros.html" import picture, icon, field, form_meta, consent, global_error_box with context %}
+{% block content %}
+<section class="page-head">
+  <div class="page-head__topo" aria-hidden="true">{{ topo(seed=6) }}</div>
+  <div class="container">
+    <p class="kicker">{{ t('contact.kicker') }}</p>
+    <h1 class="display display--md">{{ t('contact.h1') }}</h1>
+    <p class="lead">{{ t('contact.lead') }}</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container contact">
+    <div class="contact__channels">
+      <h2 class="section-title section-title--sm">{{ t('contact.channels') }}</h2>
+      <a class="channel channel--wa" href="{{ wa() }}" target="_blank" rel="noopener" data-track="whatsapp">
+        {{ icon('whatsapp') }}<span><strong>WhatsApp</strong>{{ biz.phone_display }}</span>{{ icon('arrow-right', 'channel__arrow') }}</a>
+      <a class="channel" href="tel:{{ biz.phone_e164 }}">{{ icon('phone') }}<span><strong>{{ t('contact.call') }}</strong>{{ biz.phone_display }}</span>{{ icon('arrow-right', 'channel__arrow') }}</a>
+      <a class="channel" href="mailto:{{ biz.email }}">{{ icon('mail') }}<span><strong>Email</strong>{{ biz.email }}</span>{{ icon('arrow-right', 'channel__arrow') }}</a>
+      <a class="channel" href="{{ biz.instagram }}" target="_blank" rel="noopener">{{ icon('instagram') }}<span><strong>Instagram</strong>{{ biz.instagram_handle }}</span>{{ icon('arrow-right', 'channel__arrow') }}</a>
+      <a class="channel" href="{{ biz.facebook }}" target="_blank" rel="noopener">{{ icon('facebook') }}<span><strong>Facebook</strong>Casa Chute</span>{{ icon('arrow-right', 'channel__arrow') }}</a>
+
+      <div class="address-card">
+        <h3>{{ icon('pin') }} {{ t('contact.address') }}</h3>
+        <p>{{ biz.name }} · {{ biz.farm }}<br>{{ biz.street }}<br>{{ biz.locality }}, {{ biz.region }}, {{ tr(biz.country_name) }}</p>
+        <p class="muted small">Plus Code: {{ biz.plus_code }}</p>
+        <p>{{ t('casa.where_text') }}</p>
+        <a class="btn btn--dark btn--sm" href="{{ biz.directions }}" target="_blank" rel="noopener">{{ icon('map') }} {{ t('cta.directions') }}</a>
+      </div>
+    </div>
+
+    <form class="form-card" method="post" action="{{ url_page('contacto') }}">
+      {{ form_meta() }}
+      {{ global_error_box(global_error) }}
+      <h2 class="section-title section-title--sm">{{ t('contact.form') }}</h2>
+      <div class="field">
+        <label for="f-topic">{{ t('form.topic') }}</label>
+        <div class="select">
+          <select id="f-topic" name="topic">
+            {% for k in ('estancia', 'cafe', 'tour', 'otro') %}
+            <option value="{{ k }}"{% if msg.get('topic') == k %} selected{% endif %}>{{ t('form.topic.' + k) }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      {{ field('name', t('form.name'), msg, errors, autocomplete="name") }}
+      <div class="field-row">
+        {{ field('email', t('form.email'), msg, errors, type="email", required=false, autocomplete="email") }}
+        {{ field('phone', t('form.phone'), msg, errors, type="tel", required=false, autocomplete="tel") }}
+      </div>
+      {{ field('message', t('form.message'), msg, errors, type="textarea", attrs='maxlength="3000"') }}
+      {{ consent(msg, errors) }}
+      <button class="btn btn--cherry btn--lg btn--block" type="submit">{{ t('cta.send') }} {{ icon('arrow-right') }}</button>
+    </form>
+  </div>
+</section>
+
+<section class="section section--parchment">
+  <div class="container map-block">
+    <div class="map-block__illustration">{{ picture('mapa-ubicacion', sizes="(min-width: 900px) 45vw, 92vw") }}</div>
+    <div class="map-facade" data-map="{{ biz.lat }},{{ biz.lng }}">
+      <button class="btn btn--dark" type="button" data-map-load>{{ icon('map') }} {{ t('cta.load_map') }}</button>
+      <p class="muted small">{{ t('contact.map_note') }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% block title %}Entrar{% endblock %}
+{% block content %}
+<section class="adm-login">
+  <h1>Entrar al panel</h1>
+  {% if not configured %}
+    <p class="adm-alert">El panel está desactivado: falta <code>ADMIN_PASSWORD_HASH</code> en el archivo <code>.env</code>.<br>
+    Créalo con: <code>python manage.py hash-password</code></p>
+  {% else %}
+    {% if error %}<p class="adm-alert" role="alert">{{ error }}</p>{% endif %}
+    <form method="post">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label for="pw">Contraseña</label>
+      <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button type="submit">Entrar</button>
+    </form>
+  {% endif %}
+</section>
+{% endblock %}

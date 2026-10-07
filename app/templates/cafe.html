@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% from "macros.html" import picture, icon, field, form_meta, consent, global_error_box with context %}
+{% block wa_link %}{{ wa('wa.coffee') }}{% endblock %}
+{% block content %}
+<section class="product-hero">
+  <div class="product-hero__topo" aria-hidden="true">{{ topo(seed=2) }}</div>
+  <div class="container product-hero__grid">
+    <div class="product-hero__text">
+      <p class="kicker kicker--gold">{{ t('cafe.kicker') }}</p>
+      <h1 class="display">{{ t('cafe.h1') }}<em class="display__sub">Bourbon · 500 g</em></h1>
+      <p class="hero__lead">{{ t('cafe.lead') }}</p>
+      <dl class="facts">
+        <div><dt>{{ t('cafe.facts_origin') }}</dt><dd>{{ biz.farm }}, {{ biz.locality }}</dd></div>
+        <div><dt>{{ t('cafe.facts_variety') }}</dt><dd>{{ coffee.variety }}</dd></div>
+        <div><dt>{{ t('cafe.facts_process') }}</dt><dd>{{ t('cafe.facts_process_v') }}</dd></div>
+        <div><dt>{{ t('cafe.facts_harvest') }}</dt><dd>{{ t('cafe.facts_harvest_v') }}</dd></div>
+      </dl>
+      <div class="hero__ctas">
+        <a class="btn btn--cherry btn--lg" href="#pedido">{{ t('cafe.order_title') }} {{ icon('arrow-right') }}</a>
+        <a class="btn btn--glass btn--lg" href="{{ wa('wa.coffee') }}" target="_blank" rel="noopener" data-track="whatsapp">{{ icon('whatsapp') }} WhatsApp</a>
+      </div>
+    </div>
+    <div class="product-hero__media">
+      <div class="product-hero__halo" aria-hidden="true">{{ dandelion() }}</div>
+      <div class="arch arch--tall">{{ picture('bolsas', sizes="(min-width: 900px) 40vw, 90vw", priority=true) }}</div>
+    </div>
+  </div>
+</section>
+
+{# ------------------------------------------------ Perfil sensorial #}
+<section class="section">
+  <div class="container taste">
+    <div class="taste__cup reveal" aria-hidden="true">
+      <div class="cup-rings">
+        {% for note in coffee.notes %}<span class="cup-ring cup-ring--{{ note.id }}"></span>{% endfor %}
+        <span class="cup-ring__center">{{ icon('cup') }}</span>
+      </div>
+    </div>
+    <div class="taste__text reveal">
+      <p class="kicker">{{ t('cafe.notes') }}</p>
+      <h2 class="section-title">{{ t('cafe.notes_lead') }}…</h2>
+      <ul class="notes notes--big">
+        {% for note in coffee.notes %}
+        <li class="note note--{{ note.id }}"><span class="note__dot" aria-hidden="true"></span>{{ tr(note.name) }}</li>
+        {% endfor %}
+      </ul>
+      <div class="taste__photos">
+        {{ picture('cereza-mano', sizes="180px") }}
+        {{ picture('taza-humo', sizes="180px") }}
+        {{ picture('bolsa-chute', sizes="180px") }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ------------------------------------------------ Pedido #}
+<section class="section section--parchment" id="pedido">
+  <div class="container order">
+    <div class="order__product">
+      <div class="arch">{{ picture('prensa', sizes="(min-width: 900px) 420px, 90vw") }}</div>
+      <h2 class="section-title section-title--sm">{{ coffee.name }}</h2>
+      <p class="order__price">
+        {% if price %}<strong>{{ cop(price) }}</strong> COP · {{ t('cafe.bag') }}
+        {% else %}{{ t('cafe.bag') }} · <span class="muted">{{ t('cafe.price_ask') }}</span>{% endif %}
+      </p>
+    </div>
+    <form class="order__form" method="post" action="{{ url_page('cafe') }}#pedido" data-order{% if price %} data-price="{{ price }}"{% endif %}>
+      {{ form_meta() }}
+      {{ global_error_box(global_error) }}
+      <h2 class="section-title section-title--sm">{{ t('cafe.order_title') }}</h2>
+      <p class="muted">{{ t('cafe.order_lead') }}</p>
+      <fieldset class="qty-group{% if errors.get('qty_grano') %} field--error{% endif %}">
+        <legend>{{ t('cafe.format') }} · {{ t('cafe.qty') }}</legend>
+        {% for fid, label in coffee.formats %}
+        <div class="qty">
+          <label for="f-qty_{{ fid }}">{{ tr(label) }}</label>
+          <div class="stepper">
+            <button type="button" class="icon-btn icon-btn--sm" data-step-down aria-label="−">−</button>
+            <input id="f-qty_{{ fid }}" name="qty_{{ fid }}" type="number" inputmode="numeric" min="0" max="50" value="{{ order.get('qty_' + fid, '1' if loop.first else '0') }}" data-qty>
+            <button type="button" class="icon-btn icon-btn--sm" data-step-up aria-label="+">+</button>
+          </div>
+        </div>
+        {% endfor %}
+        {% if errors.get('qty_grano') %}<p class="field__error">{{ errors['qty_grano'] }}</p>{% endif %}
+        {% if price %}<p class="order__total">{{ t('book.total') }}: <strong data-order-total>—</strong></p>{% endif %}
+      </fieldset>
+      {{ field('name', t('form.name'), order, errors, autocomplete="name") }}
+      <div class="field-row">
+        {{ field('phone', t('form.phone'), order, errors, type="tel", autocomplete="tel") }}
+        {{ field('email', t('form.email'), order, errors, type="email", required=false, autocomplete="email") }}
+      </div>
+      <div class="field-row">
+        {{ field('city', t('form.city'), order, errors, autocomplete="address-level2") }}
+        {{ field('address', t('form.address'), order, errors, required=false, autocomplete="street-address") }}
+      </div>
+      {{ field('message', t('form.notes'), order, errors, type="textarea", required=false) }}
+      {{ consent(order, errors) }}
+      <button class="btn btn--cherry btn--lg btn--block" type="submit">{{ t('cta.order') }} {{ icon('arrow-right') }}</button>
+    </form>
+  </div>
+</section>
+
+{# ------------------------------------------------ Variedad #}
+<section class="section">
+  <div class="container variety">
+    <div class="variety__text reveal">
+      <p class="kicker">{{ t('cafe.variety') }}</p>
+      <h2 class="section-title">Bourbon</h2>
+      <p class="lead">{{ t('cafe.variety_text') }}</p>
+    </div>
+    <figure class="variety__tree reveal">
+      {{ picture('variedades', sizes="(min-width: 1000px) 60vw, 92vw") }}
+    </figure>
+  </div>
+</section>
+
+{# ------------------------------------------------ Proceso resumido #}
+<section class="section section--espresso">
+  <div class="container">
+    <p class="kicker kicker--gold">{{ t('home.process_kicker') }}</p>
+    <h2 class="section-title section-title--light">{{ t('hist.process') }}</h2>
+    <ol class="steps-row">
+      {% for step in process %}
+      <li class="steps-row__item reveal">
+        <div class="steps-row__media">{{ picture(step.photo, sizes="(min-width: 1000px) 16vw, 45vw") }}</div>
+        <span class="step__num">{{ '%02d' % loop.index }}</span>
+        <h3>{{ tr(step.title) }}</h3>
+        <p>{{ tr(step.text) }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ------------------------------------------------ Dónde comprar #}
+<section class="section" id="donde-comprar">
+  <div class="container where">
+    <h2 class="section-title">{{ t('cafe.where') }}</h2>
+    <div class="where__grid">
+      {% for shop in where %}
+      <article class="card">
+        <h3>{{ icon('pin') }} {{ shop.name }}</h3>
+        <p>{{ tr(shop.desc) }}</p>
+        <p class="muted">{{ shop.address }}</p>
+        <a class="link-arrow" href="{{ shop.maps }}" target="_blank" rel="noopener">{{ t('cta.directions') }} {{ icon('arrow-right') }}</a>
+      </article>
+      {% endfor %}
+      <article class="card card--dark">
+        <h3>{{ icon('whatsapp') }} {{ t('cafe.order_title') }}</h3>
+        <p>{{ t('cafe.order_lead') }}</p>
+        <a class="btn btn--cherry" href="#pedido">{{ t('cta.order') }}</a>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

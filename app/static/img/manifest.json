@@ -1,0 +1,1977 @@
+{
+ "cafetal-ladera": {
+  "w": 1920,
+  "h": 1080,
+  "color": "#3b4a38",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cafetal-ladera-480.webp",
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "file": "cafetal-ladera-800.webp",
+    "kb": 89
+   },
+   {
+    "w": 1200,
+    "file": "cafetal-ladera-1200.webp",
+    "kb": 186
+   },
+   {
+    "w": 1600,
+    "file": "cafetal-ladera-1600.webp",
+    "kb": 289
+   },
+   {
+    "w": 1920,
+    "file": "cafetal-ladera-1920.webp",
+    "kb": 363
+   }
+  ],
+  "alt": {
+   "es": "Ladera sembrada de café en la vereda Alto de la Mina, Chinchiná",
+   "en": "Coffee-planted hillside in Alto de la Mina, Chinchiná"
+  }
+ },
+ "casa-panoramica": {
+  "w": 2400,
+  "h": 1766,
+  "color": "#717a6e",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-panoramica-480.webp",
+    "kb": 34
+   },
+   {
+    "w": 800,
+    "file": "casa-panoramica-800.webp",
+    "kb": 89
+   },
+   {
+    "w": 1200,
+    "file": "casa-panoramica-1200.webp",
+    "kb": 185
+   },
+   {
+    "w": 1600,
+    "file": "casa-panoramica-1600.webp",
+    "kb": 297
+   },
+   {
+    "w": 2400,
+    "file": "casa-panoramica-2400.webp",
+    "kb": 521
+   }
+  ],
+  "alt": {
+   "es": "Casa Chute rodeada de montañas en el Paisaje Cultural Cafetero",
+   "en": "Casa Chute surrounded by the mountains of the Coffee Cultural Landscape"
+  }
+ },
+ "casa-jardin": {
+  "w": 2400,
+  "h": 1800,
+  "color": "#73785b",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-jardin-480.webp",
+    "kb": 39
+   },
+   {
+    "w": 800,
+    "file": "casa-jardin-800.webp",
+    "kb": 107
+   },
+   {
+    "w": 1200,
+    "file": "casa-jardin-1200.webp",
+    "kb": 227
+   },
+   {
+    "w": 1600,
+    "file": "casa-jardin-1600.webp",
+    "kb": 365
+   },
+   {
+    "w": 2400,
+    "file": "casa-jardin-2400.webp",
+    "kb": 672
+   }
+  ],
+  "alt": {
+   "es": "Jardín y casa principal de Casa Chute",
+   "en": "Garden and main house at Casa Chute"
+  }
+ },
+ "casa-corredor": {
+  "w": 2400,
+  "h": 1664,
+  "color": "#746f54",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-corredor-480.webp",
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "file": "casa-corredor-800.webp",
+    "kb": 64
+   },
+   {
+    "w": 1200,
+    "file": "casa-corredor-1200.webp",
+    "kb": 117
+   },
+   {
+    "w": 1600,
+    "file": "casa-corredor-1600.webp",
+    "kb": 177
+   },
+   {
+    "w": 2400,
+    "file": "casa-corredor-2400.webp",
+    "kb": 295
+   }
+  ],
+  "alt": {
+   "es": "Corredor con sillas y plantas frente al jardín",
+   "en": "Porch with chairs and plants facing the garden"
+  }
+ },
+ "casa-fachada": {
+  "w": 1600,
+  "h": 1005,
+  "color": "#948677",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-fachada-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 800,
+    "file": "casa-fachada-800.webp",
+    "kb": 41
+   },
+   {
+    "w": 1200,
+    "file": "casa-fachada-1200.webp",
+    "kb": 67
+   },
+   {
+    "w": 1600,
+    "file": "casa-fachada-1600.webp",
+    "kb": 86
+   }
+  ],
+  "alt": {
+   "es": "Fachada blanca con balcones rojos de Casa Chute",
+   "en": "White façade with red balconies at Casa Chute"
+  }
+ },
+ "casa-exterior": {
+  "w": 1500,
+  "h": 842,
+  "color": "#9b9486",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-exterior-480.webp",
+    "kb": 19
+   },
+   {
+    "w": 800,
+    "file": "casa-exterior-800.webp",
+    "kb": 48
+   },
+   {
+    "w": 1200,
+    "file": "casa-exterior-1200.webp",
+    "kb": 92
+   },
+   {
+    "w": 1500,
+    "file": "casa-exterior-1500.webp",
+    "kb": 124
+   }
+  ],
+  "alt": {
+   "es": "Prado, piscina y casa en Casa Chute",
+   "en": "Lawn, pool and house at Casa Chute"
+  }
+ },
+ "casa-balcones": {
+  "w": 1500,
+  "h": 749,
+  "color": "#927b67",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-balcones-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 800,
+    "file": "casa-balcones-800.webp",
+    "kb": 41
+   },
+   {
+    "w": 1200,
+    "file": "casa-balcones-1200.webp",
+    "kb": 74
+   },
+   {
+    "w": 1500,
+    "file": "casa-balcones-1500.webp",
+    "kb": 95
+   }
+  ],
+  "alt": {
+   "es": "Casa de dos pisos con balcones y prado",
+   "en": "Two-storey house with balconies and lawn"
+  }
+ },
+ "casa-entrada": {
+  "w": 1500,
+  "h": 842,
+  "color": "#7e7762",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-entrada-480.webp",
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "file": "casa-entrada-800.webp",
+    "kb": 64
+   },
+   {
+    "w": 1200,
+    "file": "casa-entrada-1200.webp",
+    "kb": 111
+   },
+   {
+    "w": 1500,
+    "file": "casa-entrada-1500.webp",
+    "kb": 139
+   }
+  ],
+  "alt": {
+   "es": "Entrada de la casa con plantas y corredor",
+   "en": "House entrance with plants and porch"
+  }
+ },
+ "casa-piscina-casa": {
+  "w": 1500,
+  "h": 701,
+  "color": "#938a75",
+  "variants": [
+   {
+    "w": 480,
+    "file": "casa-piscina-casa-480.webp",
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "file": "casa-piscina-casa-800.webp",
+    "kb": 45
+   },
+   {
+    "w": 1200,
+    "file": "casa-piscina-casa-1200.webp",
+    "kb": 76
+   },
+   {
+    "w": 1500,
+    "file": "casa-piscina-casa-1500.webp",
+    "kb": 92
+   }
+  ],
+  "alt": {
+   "es": "Vista de la casa y la piscina",
+   "en": "View of the house and the pool"
+  }
+ },
+ "piscina": {
+  "w": 1359,
+  "h": 842,
+  "color": "#8b8372",
+  "variants": [
+   {
+    "w": 480,
+    "file": "piscina-480.webp",
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "file": "piscina-800.webp",
+    "kb": 70
+   },
+   {
+    "w": 1200,
+    "file": "piscina-1200.webp",
+    "kb": 132
+   },
+   {
+    "w": 1359,
+    "file": "piscina-1359.webp",
+    "kb": 147
+   }
+  ],
+  "alt": {
+   "es": "Piscina rodeada de baranda de madera",
+   "en": "Pool surrounded by a wooden railing"
+  }
+ },
+ "piscina-vista": {
+  "w": 1090,
+  "h": 722,
+  "color": "#657f95",
+  "variants": [
+   {
+    "w": 480,
+    "file": "piscina-vista-480.webp",
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "file": "piscina-vista-800.webp",
+    "kb": 51
+   },
+   {
+    "w": 1090,
+    "file": "piscina-vista-1090.webp",
+    "kb": 82
+   }
+  ],
+  "alt": {
+   "es": "Piscina con vista a las montañas de Caldas",
+   "en": "Pool overlooking the mountains of Caldas"
+  }
+ },
+ "atardecer": {
+  "w": 1090,
+  "h": 722,
+  "color": "#4f5755",
+  "variants": [
+   {
+    "w": 480,
+    "file": "atardecer-480.webp",
+    "kb": 6
+   },
+   {
+    "w": 800,
+    "file": "atardecer-800.webp",
+    "kb": 13
+   },
+   {
+    "w": 1090,
+    "file": "atardecer-1090.webp",
+    "kb": 19
+   }
+  ],
+  "alt": {
+   "es": "Atardecer sobre las montañas desde la finca",
+   "en": "Sunset over the mountains from the farm"
+  }
+ },
+ "mecedora": {
+  "w": 1090,
+  "h": 722,
+  "color": "#655d41",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mecedora-480.webp",
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "file": "mecedora-800.webp",
+    "kb": 54
+   },
+   {
+    "w": 1090,
+    "file": "mecedora-1090.webp",
+    "kb": 82
+   }
+  ],
+  "alt": {
+   "es": "Mecedora en el corredor con vista al verde",
+   "en": "Rocking chair on the porch overlooking the green"
+  }
+ },
+ "taza-con-vista": {
+  "w": 1090,
+  "h": 722,
+  "color": "#6a796d",
+  "variants": [
+   {
+    "w": 480,
+    "file": "taza-con-vista-480.webp",
+    "kb": 13
+   },
+   {
+    "w": 800,
+    "file": "taza-con-vista-800.webp",
+    "kb": 27
+   },
+   {
+    "w": 1090,
+    "file": "taza-con-vista-1090.webp",
+    "kb": 43
+   }
+  ],
+  "alt": {
+   "es": "Huésped tomando café frente al paisaje",
+   "en": "Guest drinking coffee facing the landscape"
+  }
+ },
+ "cocina-comedor": {
+  "w": 2131,
+  "h": 2560,
+  "color": "#887456",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cocina-comedor-480.webp",
+    "kb": 37
+   },
+   {
+    "w": 800,
+    "file": "cocina-comedor-800.webp",
+    "kb": 75
+   },
+   {
+    "w": 1200,
+    "file": "cocina-comedor-1200.webp",
+    "kb": 129
+   },
+   {
+    "w": 1600,
+    "file": "cocina-comedor-1600.webp",
+    "kb": 185
+   },
+   {
+    "w": 2131,
+    "file": "cocina-comedor-2131.webp",
+    "kb": 269
+   }
+  ],
+  "alt": {
+   "es": "Cocina y comedor con mesas de madera",
+   "en": "Kitchen and dining room with wooden tables"
+  }
+ },
+ "cocina-barra": {
+  "w": 2400,
+  "h": 1895,
+  "color": "#8e7564",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cocina-barra-480.webp",
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "file": "cocina-barra-800.webp",
+    "kb": 46
+   },
+   {
+    "w": 1200,
+    "file": "cocina-barra-1200.webp",
+    "kb": 77
+   },
+   {
+    "w": 1600,
+    "file": "cocina-barra-1600.webp",
+    "kb": 109
+   },
+   {
+    "w": 2400,
+    "file": "cocina-barra-2400.webp",
+    "kb": 179
+   }
+  ],
+  "alt": {
+   "es": "Barra de ladrillo y madera en la cocina",
+   "en": "Brick and wood bar in the kitchen"
+  }
+ },
+ "cocina-mesa": {
+  "w": 2094,
+  "h": 2560,
+  "color": "#947d63",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cocina-mesa-480.webp",
+    "kb": 43
+   },
+   {
+    "w": 800,
+    "file": "cocina-mesa-800.webp",
+    "kb": 100
+   },
+   {
+    "w": 1200,
+    "file": "cocina-mesa-1200.webp",
+    "kb": 186
+   },
+   {
+    "w": 1600,
+    "file": "cocina-mesa-1600.webp",
+    "kb": 274
+   },
+   {
+    "w": 2094,
+    "file": "cocina-mesa-2094.webp",
+    "kb": 387
+   }
+  ],
+  "alt": {
+   "es": "Mesa grande de madera para compartir",
+   "en": "Large wooden table for sharing"
+  }
+ },
+ "cocina-cafe": {
+  "w": 2400,
+  "h": 1802,
+  "color": "#745d49",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cocina-cafe-480.webp",
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "file": "cocina-cafe-800.webp",
+    "kb": 39
+   },
+   {
+    "w": 1200,
+    "file": "cocina-cafe-1200.webp",
+    "kb": 72
+   },
+   {
+    "w": 1600,
+    "file": "cocina-cafe-1600.webp",
+    "kb": 113
+   },
+   {
+    "w": 2400,
+    "file": "cocina-cafe-2400.webp",
+    "kb": 196
+   }
+  ],
+  "alt": {
+   "es": "Cocina equipada con bolsas de Café Chute",
+   "en": "Equipped kitchen with bags of Café Chute"
+  }
+ },
+ "cocina-amplia": {
+  "w": 2400,
+  "h": 1882,
+  "color": "#796b57",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cocina-amplia-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "file": "cocina-amplia-800.webp",
+    "kb": 54
+   },
+   {
+    "w": 1200,
+    "file": "cocina-amplia-1200.webp",
+    "kb": 103
+   },
+   {
+    "w": 1600,
+    "file": "cocina-amplia-1600.webp",
+    "kb": 160
+   },
+   {
+    "w": 2400,
+    "file": "cocina-amplia-2400.webp",
+    "kb": 276
+   }
+  ],
+  "alt": {
+   "es": "Cocina amplia con vigas de madera",
+   "en": "Spacious kitchen with wooden beams"
+  }
+ },
+ "hab-cafe2-1": {
+  "w": 953,
+  "h": 1280,
+  "color": "#af9778",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-cafe2-1-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "file": "hab-cafe2-1-800.webp",
+    "kb": 32
+   },
+   {
+    "w": 953,
+    "file": "hab-cafe2-1-953.webp",
+    "kb": 38
+   }
+  ],
+  "alt": {
+   "es": "Habitación del Café 2 con cama doble y cojines rojos",
+   "en": "Coffee Room 2 with double bed and red cushions"
+  }
+ },
+ "hab-cafe2-2": {
+  "w": 906,
+  "h": 1280,
+  "color": "#645b4a",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-cafe2-2-480.webp",
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "file": "hab-cafe2-2-800.webp",
+    "kb": 38
+   },
+   {
+    "w": 906,
+    "file": "hab-cafe2-2-906.webp",
+    "kb": 41
+   }
+  ],
+  "alt": {
+   "es": "Baño de la Habitación del Café 2",
+   "en": "Bathroom of Coffee Room 2"
+  }
+ },
+ "hab-twin-1": {
+  "w": 1280,
+  "h": 853,
+  "color": "#91754a",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-twin-1-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "file": "hab-twin-1-800.webp",
+    "kb": 30
+   },
+   {
+    "w": 1200,
+    "file": "hab-twin-1-1200.webp",
+    "kb": 50
+   },
+   {
+    "w": 1280,
+    "file": "hab-twin-1-1280.webp",
+    "kb": 51
+   }
+  ],
+  "alt": {
+   "es": "Habitación Twin con dos camas sencillas",
+   "en": "Twin room with two single beds"
+  }
+ },
+ "hab-twin-2": {
+  "w": 960,
+  "h": 1280,
+  "color": "#84684c",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-twin-2-480.webp",
+    "kb": 35
+   },
+   {
+    "w": 800,
+    "file": "hab-twin-2-800.webp",
+    "kb": 74
+   },
+   {
+    "w": 960,
+    "file": "hab-twin-2-960.webp",
+    "kb": 94
+   }
+  ],
+  "alt": {
+   "es": "Escritorio y camas de la Habitación Twin",
+   "en": "Desk and beds in the Twin room"
+  }
+ },
+ "hab-twin-3": {
+  "w": 960,
+  "h": 1280,
+  "color": "#89714f",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-twin-3-480.webp",
+    "kb": 31
+   },
+   {
+    "w": 800,
+    "file": "hab-twin-3-800.webp",
+    "kb": 56
+   },
+   {
+    "w": 960,
+    "file": "hab-twin-3-960.webp",
+    "kb": 66
+   }
+  ],
+  "alt": {
+   "es": "Baño de la Habitación Twin",
+   "en": "Bathroom of the Twin room"
+  }
+ },
+ "hab-accesible-1": {
+  "w": 1280,
+  "h": 907,
+  "color": "#726a4b",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-accesible-1-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "file": "hab-accesible-1-800.webp",
+    "kb": 28
+   },
+   {
+    "w": 1200,
+    "file": "hab-accesible-1-1200.webp",
+    "kb": 47
+   },
+   {
+    "w": 1280,
+    "file": "hab-accesible-1-1280.webp",
+    "kb": 46
+   }
+  ],
+  "alt": {
+   "es": "Habitación Accesible con cama doble y camarote",
+   "en": "Accessible room with double bed and bunk bed"
+  }
+ },
+ "hab-accesible-2": {
+  "w": 1280,
+  "h": 960,
+  "color": "#91876d",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-accesible-2-480.webp",
+    "kb": 16
+   },
+   {
+    "w": 800,
+    "file": "hab-accesible-2-800.webp",
+    "kb": 29
+   },
+   {
+    "w": 1200,
+    "file": "hab-accesible-2-1200.webp",
+    "kb": 49
+   },
+   {
+    "w": 1280,
+    "file": "hab-accesible-2-1280.webp",
+    "kb": 49
+   }
+  ],
+  "alt": {
+   "es": "Vista general de la Habitación Accesible",
+   "en": "Overview of the Accessible room"
+  }
+ },
+ "hab-accesible-bano": {
+  "w": 2076,
+  "h": 2560,
+  "color": "#8b826c",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-accesible-bano-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "file": "hab-accesible-bano-800.webp",
+    "kb": 47
+   },
+   {
+    "w": 1200,
+    "file": "hab-accesible-bano-1200.webp",
+    "kb": 79
+   },
+   {
+    "w": 1600,
+    "file": "hab-accesible-bano-1600.webp",
+    "kb": 114
+   },
+   {
+    "w": 2076,
+    "file": "hab-accesible-bano-2076.webp",
+    "kb": 165
+   }
+  ],
+  "alt": {
+   "es": "Baño accesible con barras de apoyo",
+   "en": "Accessible bathroom with grab bars"
+  }
+ },
+ "hab-junior-1": {
+  "w": 1600,
+  "h": 1280,
+  "color": "#847456",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-junior-1-480.webp",
+    "kb": 19
+   },
+   {
+    "w": 800,
+    "file": "hab-junior-1-800.webp",
+    "kb": 40
+   },
+   {
+    "w": 1200,
+    "file": "hab-junior-1-1200.webp",
+    "kb": 62
+   },
+   {
+    "w": 1600,
+    "file": "hab-junior-1-1600.webp",
+    "kb": 80
+   }
+  ],
+  "alt": {
+   "es": "Habitación Junior con cama doble y sofá",
+   "en": "Junior room with double bed and sofa"
+  }
+ },
+ "hab-junior-2": {
+  "w": 1033,
+  "h": 1280,
+  "color": "#684d28",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-junior-2-480.webp",
+    "kb": 21
+   },
+   {
+    "w": 800,
+    "file": "hab-junior-2-800.webp",
+    "kb": 40
+   },
+   {
+    "w": 1033,
+    "file": "hab-junior-2-1033.webp",
+    "kb": 51
+   }
+  ],
+  "alt": {
+   "es": "Habitación Junior con luz cálida",
+   "en": "Junior room in warm light"
+  }
+ },
+ "hab-junior-3": {
+  "w": 1270,
+  "h": 1599,
+  "color": "#80765b",
+  "variants": [
+   {
+    "w": 480,
+    "file": "hab-junior-3-480.webp",
+    "kb": 23
+   },
+   {
+    "w": 800,
+    "file": "hab-junior-3-800.webp",
+    "kb": 45
+   },
+   {
+    "w": 1200,
+    "file": "hab-junior-3-1200.webp",
+    "kb": 75
+   },
+   {
+    "w": 1270,
+    "file": "hab-junior-3-1270.webp",
+    "kb": 76
+   }
+  ],
+  "alt": {
+   "es": "Baño de la Habitación Junior",
+   "en": "Bathroom of the Junior room"
+  }
+ },
+ "suite-1": {
+  "w": 2400,
+  "h": 2502,
+  "color": "#8e7450",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-1-480.webp",
+    "kb": 22
+   },
+   {
+    "w": 800,
+    "file": "suite-1-800.webp",
+    "kb": 49
+   },
+   {
+    "w": 1200,
+    "file": "suite-1-1200.webp",
+    "kb": 92
+   },
+   {
+    "w": 1600,
+    "file": "suite-1-1600.webp",
+    "kb": 141
+   },
+   {
+    "w": 2400,
+    "file": "suite-1-2400.webp",
+    "kb": 238
+   }
+  ],
+  "alt": {
+   "es": "Suite Panorámica con cama doble y sala",
+   "en": "Panoramic Suite with double bed and lounge"
+  }
+ },
+ "suite-2": {
+  "w": 2258,
+  "h": 2560,
+  "color": "#877058",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-2-480.webp",
+    "kb": 21
+   },
+   {
+    "w": 800,
+    "file": "suite-2-800.webp",
+    "kb": 47
+   },
+   {
+    "w": 1200,
+    "file": "suite-2-1200.webp",
+    "kb": 89
+   },
+   {
+    "w": 1600,
+    "file": "suite-2-1600.webp",
+    "kb": 133
+   },
+   {
+    "w": 2258,
+    "file": "suite-2-2258.webp",
+    "kb": 214
+   }
+  ],
+  "alt": {
+   "es": "Suite Panorámica con salida al balcón",
+   "en": "Panoramic Suite opening onto the balcony"
+  }
+ },
+ "suite-3": {
+  "w": 1280,
+  "h": 870,
+  "color": "#8a6336",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-3-480.webp",
+    "kb": 12
+   },
+   {
+    "w": 800,
+    "file": "suite-3-800.webp",
+    "kb": 23
+   },
+   {
+    "w": 1200,
+    "file": "suite-3-1200.webp",
+    "kb": 39
+   },
+   {
+    "w": 1280,
+    "file": "suite-3-1280.webp",
+    "kb": 39
+   }
+  ],
+  "alt": {
+   "es": "Cama de la Suite Panorámica",
+   "en": "Bed in the Panoramic Suite"
+  }
+ },
+ "suite-balcon": {
+  "w": 2400,
+  "h": 1770,
+  "color": "#99886f",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-balcon-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "file": "suite-balcon-800.webp",
+    "kb": 56
+   },
+   {
+    "w": 1200,
+    "file": "suite-balcon-1200.webp",
+    "kb": 109
+   },
+   {
+    "w": 1600,
+    "file": "suite-balcon-1600.webp",
+    "kb": 171
+   },
+   {
+    "w": 2400,
+    "file": "suite-balcon-2400.webp",
+    "kb": 299
+   }
+  ],
+  "alt": {
+   "es": "Balcón de la suite con hamaca y vista",
+   "en": "Suite balcony with hammock and view"
+  }
+ },
+ "suite-terraza": {
+  "w": 2400,
+  "h": 1623,
+  "color": "#8f7a5f",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-terraza-480.webp",
+    "kb": 21
+   },
+   {
+    "w": 800,
+    "file": "suite-terraza-800.webp",
+    "kb": 50
+   },
+   {
+    "w": 1200,
+    "file": "suite-terraza-1200.webp",
+    "kb": 97
+   },
+   {
+    "w": 1600,
+    "file": "suite-terraza-1600.webp",
+    "kb": 147
+   },
+   {
+    "w": 2400,
+    "file": "suite-terraza-2400.webp",
+    "kb": 248
+   }
+  ],
+  "alt": {
+   "es": "Terraza privada de la suite con comedor",
+   "en": "Private suite terrace with dining set"
+  }
+ },
+ "suite-bano": {
+  "w": 960,
+  "h": 1280,
+  "color": "#847b67",
+  "variants": [
+   {
+    "w": 480,
+    "file": "suite-bano-480.webp",
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "file": "suite-bano-800.webp",
+    "kb": 30
+   },
+   {
+    "w": 960,
+    "file": "suite-bano-960.webp",
+    "kb": 35
+   }
+  ],
+  "alt": {
+   "es": "Baño de la Suite Panorámica",
+   "en": "Bathroom of the Panoramic Suite"
+  }
+ },
+ "kiosko": {
+  "w": 2400,
+  "h": 1694,
+  "color": "#928779",
+  "variants": [
+   {
+    "w": 480,
+    "file": "kiosko-480.webp",
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "file": "kiosko-800.webp",
+    "kb": 77
+   },
+   {
+    "w": 1200,
+    "file": "kiosko-1200.webp",
+    "kb": 152
+   },
+   {
+    "w": 1600,
+    "file": "kiosko-1600.webp",
+    "kb": 239
+   },
+   {
+    "w": 2400,
+    "file": "kiosko-2400.webp",
+    "kb": 415
+   }
+  ],
+  "alt": {
+   "es": "Kiosko de techo de teja con sillas junto a la piscina",
+   "en": "Tiled-roof kiosk with chairs next to the pool"
+  }
+ },
+ "kiosko-interior": {
+  "w": 2400,
+  "h": 1884,
+  "color": "#8d6c3f",
+  "variants": [
+   {
+    "w": 480,
+    "file": "kiosko-interior-480.webp",
+    "kb": 38
+   },
+   {
+    "w": 800,
+    "file": "kiosko-interior-800.webp",
+    "kb": 93
+   },
+   {
+    "w": 1200,
+    "file": "kiosko-interior-1200.webp",
+    "kb": 188
+   },
+   {
+    "w": 1600,
+    "file": "kiosko-interior-1600.webp",
+    "kb": 294
+   },
+   {
+    "w": 2400,
+    "file": "kiosko-interior-2400.webp",
+    "kb": 519
+   }
+  ],
+  "alt": {
+   "es": "Interior del kiosko con mesas y vista",
+   "en": "Inside the kiosk with tables and views"
+  }
+ },
+ "kiosko-mesas": {
+  "w": 2400,
+  "h": 1800,
+  "color": "#836642",
+  "variants": [
+   {
+    "w": 480,
+    "file": "kiosko-mesas-480.webp",
+    "kb": 35
+   },
+   {
+    "w": 800,
+    "file": "kiosko-mesas-800.webp",
+    "kb": 89
+   },
+   {
+    "w": 1200,
+    "file": "kiosko-mesas-1200.webp",
+    "kb": 179
+   },
+   {
+    "w": 1600,
+    "file": "kiosko-mesas-1600.webp",
+    "kb": 287
+   },
+   {
+    "w": 2400,
+    "file": "kiosko-mesas-2400.webp",
+    "kb": 503
+   }
+  ],
+  "alt": {
+   "es": "Mesas del kiosko bajo techo de guadua",
+   "en": "Kiosk tables under a bamboo roof"
+  }
+ },
+ "kiosko-vista": {
+  "w": 2400,
+  "h": 1800,
+  "color": "#865e41",
+  "variants": [
+   {
+    "w": 480,
+    "file": "kiosko-vista-480.webp",
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "file": "kiosko-vista-800.webp",
+    "kb": 79
+   },
+   {
+    "w": 1200,
+    "file": "kiosko-vista-1200.webp",
+    "kb": 157
+   },
+   {
+    "w": 1600,
+    "file": "kiosko-vista-1600.webp",
+    "kb": 248
+   },
+   {
+    "w": 2400,
+    "file": "kiosko-vista-2400.webp",
+    "kb": 445
+   }
+  ],
+  "alt": {
+   "es": "Kiosko abierto a las montañas",
+   "en": "Kiosk open to the mountains"
+  }
+ },
+ "mirador-1": {
+  "w": 2400,
+  "h": 1800,
+  "color": "#73583a",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mirador-1-480.webp",
+    "kb": 33
+   },
+   {
+    "w": 800,
+    "file": "mirador-1-800.webp",
+    "kb": 73
+   },
+   {
+    "w": 1200,
+    "file": "mirador-1-1200.webp",
+    "kb": 133
+   },
+   {
+    "w": 1600,
+    "file": "mirador-1-1600.webp",
+    "kb": 197
+   },
+   {
+    "w": 2400,
+    "file": "mirador-1-2400.webp",
+    "kb": 337
+   }
+  ],
+  "alt": {
+   "es": "Mirador de guadua con mesa de madera",
+   "en": "Bamboo lookout with wooden table"
+  }
+ },
+ "mirador-2": {
+  "w": 2400,
+  "h": 1698,
+  "color": "#876243",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mirador-2-480.webp",
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "file": "mirador-2-800.webp",
+    "kb": 66
+   },
+   {
+    "w": 1200,
+    "file": "mirador-2-1200.webp",
+    "kb": 119
+   },
+   {
+    "w": 1600,
+    "file": "mirador-2-1600.webp",
+    "kb": 178
+   },
+   {
+    "w": 2400,
+    "file": "mirador-2-2400.webp",
+    "kb": 301
+   }
+  ],
+  "alt": {
+   "es": "Estructura del mirador de guadua",
+   "en": "Structure of the bamboo lookout"
+  }
+ },
+ "mirador-3": {
+  "w": 2400,
+  "h": 1972,
+  "color": "#765c42",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mirador-3-480.webp",
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "file": "mirador-3-800.webp",
+    "kb": 68
+   },
+   {
+    "w": 1200,
+    "file": "mirador-3-1200.webp",
+    "kb": 128
+   },
+   {
+    "w": 1600,
+    "file": "mirador-3-1600.webp",
+    "kb": 194
+   },
+   {
+    "w": 2400,
+    "file": "mirador-3-2400.webp",
+    "kb": 322
+   }
+  ],
+  "alt": {
+   "es": "Pasarela de madera del mirador de guadua",
+   "en": "Wooden walkway of the bamboo lookout"
+  }
+ },
+ "mirador-4": {
+  "w": 2400,
+  "h": 1658,
+  "color": "#756043",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mirador-4-480.webp",
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "file": "mirador-4-800.webp",
+    "kb": 68
+   },
+   {
+    "w": 1200,
+    "file": "mirador-4-1200.webp",
+    "kb": 126
+   },
+   {
+    "w": 1600,
+    "file": "mirador-4-1600.webp",
+    "kb": 189
+   },
+   {
+    "w": 2400,
+    "file": "mirador-4-2400.webp",
+    "kb": 319
+   }
+  ],
+  "alt": {
+   "es": "Terraza del mirador con vista al valle",
+   "en": "Lookout terrace overlooking the valley"
+  }
+ },
+ "mirador-5": {
+  "w": 2400,
+  "h": 1143,
+  "color": "#767778",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mirador-5-480.webp",
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "file": "mirador-5-800.webp",
+    "kb": 38
+   },
+   {
+    "w": 1200,
+    "file": "mirador-5-1200.webp",
+    "kb": 73
+   },
+   {
+    "w": 1600,
+    "file": "mirador-5-1600.webp",
+    "kb": 113
+   },
+   {
+    "w": 2400,
+    "file": "mirador-5-2400.webp",
+    "kb": 194
+   }
+  ],
+  "alt": {
+   "es": "Techos de teja del mirador bajo el cielo azul",
+   "en": "Tiled roofs of the lookout under blue sky"
+  }
+ },
+ "barista": {
+  "w": 1090,
+  "h": 722,
+  "color": "#675a2f",
+  "variants": [
+   {
+    "w": 480,
+    "file": "barista-480.webp",
+    "kb": 26
+   },
+   {
+    "w": 800,
+    "file": "barista-800.webp",
+    "kb": 51
+   },
+   {
+    "w": 1090,
+    "file": "barista-1090.webp",
+    "kb": 74
+   }
+  ],
+  "alt": {
+   "es": "Barista preparando café en Chemex durante el Barista Show Tour",
+   "en": "Barista brewing Chemex coffee during the Barista Show Tour"
+  }
+ },
+ "barra-cafe": {
+  "w": 1090,
+  "h": 722,
+  "color": "#545c33",
+  "variants": [
+   {
+    "w": 480,
+    "file": "barra-cafe-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "file": "barra-cafe-800.webp",
+    "kb": 26
+   },
+   {
+    "w": 1090,
+    "file": "barra-cafe-1090.webp",
+    "kb": 38
+   }
+  ],
+  "alt": {
+   "es": "Barra de métodos de café frente al paisaje",
+   "en": "Coffee brewing bar facing the landscape"
+  }
+ },
+ "cata": {
+  "w": 1464,
+  "h": 960,
+  "color": "#806a55",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cata-480.webp",
+    "kb": 16
+   },
+   {
+    "w": 800,
+    "file": "cata-800.webp",
+    "kb": 33
+   },
+   {
+    "w": 1200,
+    "file": "cata-1200.webp",
+    "kb": 55
+   },
+   {
+    "w": 1464,
+    "file": "cata-1464.webp",
+    "kb": 71
+   }
+  ],
+  "alt": {
+   "es": "Tazas de cata con granos de café",
+   "en": "Cupping bowls with coffee beans"
+  }
+ },
+ "chemex": {
+  "w": 1500,
+  "h": 1000,
+  "color": "#765f4e",
+  "variants": [
+   {
+    "w": 480,
+    "file": "chemex-480.webp",
+    "kb": 12
+   },
+   {
+    "w": 800,
+    "file": "chemex-800.webp",
+    "kb": 23
+   },
+   {
+    "w": 1200,
+    "file": "chemex-1200.webp",
+    "kb": 37
+   },
+   {
+    "w": 1500,
+    "file": "chemex-1500.webp",
+    "kb": 50
+   }
+  ],
+  "alt": {
+   "es": "Café filtrado en Chemex servido en taza",
+   "en": "Chemex-brewed coffee served in a cup"
+  }
+ },
+ "bolsas": {
+  "w": 1412,
+  "h": 880,
+  "color": "#6f5e42",
+  "variants": [
+   {
+    "w": 480,
+    "file": "bolsas-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 800,
+    "file": "bolsas-800.webp",
+    "kb": 29
+   },
+   {
+    "w": 1200,
+    "file": "bolsas-1200.webp",
+    "kb": 48
+   },
+   {
+    "w": 1412,
+    "file": "bolsas-1412.webp",
+    "kb": 58
+   }
+  ],
+  "alt": {
+   "es": "Bolsas de Café Chute junto a una taza",
+   "en": "Bags of Café Chute next to a cup"
+  }
+ },
+ "prensa": {
+  "w": 1264,
+  "h": 1000,
+  "color": "#858066",
+  "variants": [
+   {
+    "w": 480,
+    "file": "prensa-480.webp",
+    "kb": 20
+   },
+   {
+    "w": 800,
+    "file": "prensa-800.webp",
+    "kb": 42
+   },
+   {
+    "w": 1200,
+    "file": "prensa-1200.webp",
+    "kb": 73
+   },
+   {
+    "w": 1264,
+    "file": "prensa-1264.webp",
+    "kb": 78
+   }
+  ],
+  "alt": {
+   "es": "Bolsa de Café Chute con prensa francesa y Chemex",
+   "en": "Café Chute bag with French press and Chemex"
+  }
+ },
+ "cosecha-manos": {
+  "w": 1500,
+  "h": 976,
+  "color": "#61613d",
+  "variants": [
+   {
+    "w": 480,
+    "file": "cosecha-manos-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "file": "cosecha-manos-800.webp",
+    "kb": 44
+   },
+   {
+    "w": 1200,
+    "file": "cosecha-manos-1200.webp",
+    "kb": 68
+   },
+   {
+    "w": 1500,
+    "file": "cosecha-manos-1500.webp",
+    "kb": 88
+   }
+  ],
+  "alt": {
+   "es": "Manos recolectando cerezas maduras de café",
+   "en": "Hands picking ripe coffee cherries"
+  }
+ },
+ "tradicion": {
+  "w": 1432,
+  "h": 1000,
+  "color": "#816a49",
+  "variants": [
+   {
+    "w": 480,
+    "file": "tradicion-480.webp",
+    "kb": 14
+   },
+   {
+    "w": 800,
+    "file": "tradicion-800.webp",
+    "kb": 27
+   },
+   {
+    "w": 1200,
+    "file": "tradicion-1200.webp",
+    "kb": 46
+   },
+   {
+    "w": 1432,
+    "file": "tradicion-1432.webp",
+    "kb": 56
+   }
+  ],
+  "alt": {
+   "es": "Caficultor tomando una taza de café",
+   "en": "Coffee grower drinking a cup of coffee"
+  }
+ },
+ "taza-montana": {
+  "w": 1500,
+  "h": 1000,
+  "color": "#989985",
+  "variants": [
+   {
+    "w": 480,
+    "file": "taza-montana-480.webp",
+    "kb": 12
+   },
+   {
+    "w": 800,
+    "file": "taza-montana-800.webp",
+    "kb": 22
+   },
+   {
+    "w": 1200,
+    "file": "taza-montana-1200.webp",
+    "kb": 34
+   },
+   {
+    "w": 1500,
+    "file": "taza-montana-1500.webp",
+    "kb": 45
+   }
+  ],
+  "alt": {
+   "es": "Mujer tomando café entre cafetales",
+   "en": "Woman drinking coffee among coffee trees"
+  }
+ },
+ "cereza-mano": {
+  "w": 397,
+  "h": 464,
+  "color": "#908768",
+  "variants": [
+   {
+    "w": 397,
+    "file": "cereza-mano-397.webp",
+    "kb": 10
+   }
+  ],
+  "alt": {
+   "es": "Racimo de cerezas de café en la mano",
+   "en": "Bunch of coffee cherries in hand"
+  }
+ },
+ "taza-humo": {
+  "w": 401,
+  "h": 465,
+  "color": "#bca696",
+  "variants": [
+   {
+    "w": 401,
+    "file": "taza-humo-401.webp",
+    "kb": 7
+   }
+  ],
+  "alt": {
+   "es": "Taza de café humeante",
+   "en": "Steaming cup of coffee"
+  }
+ },
+ "bolsa-chute": {
+  "w": 402,
+  "h": 469,
+  "color": "#b19f89",
+  "variants": [
+   {
+    "w": 402,
+    "file": "bolsa-chute-402.webp",
+    "kb": 10
+   }
+  ],
+  "alt": {
+   "es": "Bolsa de Café Chute con su diente de león",
+   "en": "Café Chute bag with its dandelion"
+  }
+ },
+ "paso-siembra": {
+  "w": 494,
+  "h": 366,
+  "color": "#5b6327",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-siembra-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 494,
+    "file": "paso-siembra-494.webp",
+    "kb": 15
+   }
+  ],
+  "alt": {
+   "es": "Cerezas verdes y maduras en la rama",
+   "en": "Green and ripe cherries on the branch"
+  }
+ },
+ "paso-cosecha": {
+  "w": 491,
+  "h": 364,
+  "color": "#61863c",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-cosecha-480.webp",
+    "kb": 49
+   },
+   {
+    "w": 491,
+    "file": "paso-cosecha-491.webp",
+    "kb": 50
+   }
+  ],
+  "alt": {
+   "es": "Recolector entre los cafetos",
+   "en": "Picker among the coffee trees"
+  }
+ },
+ "paso-despulpado": {
+  "w": 498,
+  "h": 371,
+  "color": "#7b4548",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-despulpado-480.webp",
+    "kb": 26
+   },
+   {
+    "w": 498,
+    "file": "paso-despulpado-498.webp",
+    "kb": 28
+   }
+  ],
+  "alt": {
+   "es": "Costal lleno de cerezas rojas",
+   "en": "Sack full of red cherries"
+  }
+ },
+ "paso-secado": {
+  "w": 497,
+  "h": 368,
+  "color": "#daa352",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-secado-480.webp",
+    "kb": 57
+   },
+   {
+    "w": 497,
+    "file": "paso-secado-497.webp",
+    "kb": 58
+   }
+  ],
+  "alt": {
+   "es": "Café secándose al sol",
+   "en": "Coffee drying in the sun"
+  }
+ },
+ "paso-tostion": {
+  "w": 495,
+  "h": 367,
+  "color": "#535e5d",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-tostion-480.webp",
+    "kb": 17
+   },
+   {
+    "w": 495,
+    "file": "paso-tostion-495.webp",
+    "kb": 18
+   }
+  ],
+  "alt": {
+   "es": "Granos tostados saliendo de la tostadora",
+   "en": "Roasted beans leaving the roaster"
+  }
+ },
+ "paso-taza": {
+  "w": 494,
+  "h": 367,
+  "color": "#99a195",
+  "variants": [
+   {
+    "w": 480,
+    "file": "paso-taza-480.webp",
+    "kb": 9
+   },
+   {
+    "w": 494,
+    "file": "paso-taza-494.webp",
+    "kb": 10
+   }
+  ],
+  "alt": {
+   "es": "Empaque de Café Chute con granos",
+   "en": "Café Chute package with beans"
+  }
+ },
+ "variedades": {
+  "w": 2400,
+  "h": 1545,
+  "color": "#fcfbfa",
+  "variants": [
+   {
+    "w": 480,
+    "file": "variedades-480.webp",
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "file": "variedades-800.webp",
+    "kb": 55
+   },
+   {
+    "w": 1200,
+    "file": "variedades-1200.webp",
+    "kb": 92
+   },
+   {
+    "w": 1600,
+    "file": "variedades-1600.webp",
+    "kb": 131
+   },
+   {
+    "w": 2400,
+    "file": "variedades-2400.webp",
+    "kb": 214
+   }
+  ],
+  "alt": {
+   "es": "Árbol genealógico del café: del tronco etíope a la variedad Bourbon",
+   "en": "Coffee family tree: from the Ethiopian trunk to the Bourbon variety"
+  }
+ },
+ "mapa-ubicacion": {
+  "w": 1922,
+  "h": 1686,
+  "color": "#9eb994",
+  "variants": [
+   {
+    "w": 480,
+    "file": "mapa-ubicacion-480.webp",
+    "kb": 27
+   },
+   {
+    "w": 800,
+    "file": "mapa-ubicacion-800.webp",
+    "kb": 68
+   },
+   {
+    "w": 1200,
+    "file": "mapa-ubicacion-1200.webp",
+    "kb": 131
+   },
+   {
+    "w": 1600,
+    "file": "mapa-ubicacion-1600.webp",
+    "kb": 201
+   },
+   {
+    "w": 1922,
+    "file": "mapa-ubicacion-1922.webp",
+    "kb": 263
+   }
+  ],
+  "alt": {
+   "es": "Mapa: Casa Chute en la vereda Alto de la Mina, al occidente de Chinchiná, entre Palestina y Santa Rosa",
+   "en": "Map: Casa Chute in Alto de la Mina, west of Chinchiná, between Palestina and Santa Rosa"
+  }
+ }
+}

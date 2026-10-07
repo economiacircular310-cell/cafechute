@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <p class="kicker">{{ 'Ley 1581 de 2012' if lang == 'es' else 'Colombian Law 1581 of 2012' }}</p>
+    <h1 class="display display--md">{{ 'Política de tratamiento de datos personales' if lang == 'es' else 'Privacy policy' }}</h1>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="container prose prose--legal">
+  {% if lang == 'es' %}
+    <h2>1. Responsable del tratamiento</h2>
+    <p><strong>{{ cfg.LEGAL_NAME }}</strong>{% if cfg.LEGAL_ID %}, identificado con {{ cfg.LEGAL_ID }}{% endif %}, con domicilio en {{ biz.street }}, {{ biz.locality }}, {{ biz.region }} (Colombia). Correo: <a href="mailto:{{ biz.email }}">{{ biz.email }}</a>. Teléfono: <a href="tel:{{ biz.phone_e164 }}">{{ biz.phone_display }}</a>.</p>
+    <h2>2. Datos que recogemos</h2>
+    <p>Solo los que nos das en los formularios de reserva, pedido, tour o contacto: nombre, correo electrónico, teléfono, ciudad y dirección de envío (en pedidos), fechas y número de huéspedes, y los comentarios que quieras añadir. No recogemos datos sensibles.</p>
+    <h2>3. Finalidad</h2>
+    <p>Responder tu solicitud, gestionar reservas, pedidos y experiencias, coordinar pagos y envíos, y comunicarnos contigo sobre ellas por WhatsApp, teléfono o correo. No vendemos ni cedemos tus datos a terceros con fines comerciales.</p>
+    <h2>4. Tus derechos</h2>
+    <p>Como titular puedes conocer, actualizar, rectificar y suprimir tus datos, revocar la autorización y solicitar prueba de ella, ser informado del uso que les damos y presentar quejas ante la Superintendencia de Industria y Comercio. Para ejercerlos escribe a <a href="mailto:{{ biz.email }}">{{ biz.email }}</a>; respondemos consultas en máximo 10 días hábiles y reclamos en máximo 15 días hábiles.</p>
+    <h2>5. Conservación y seguridad</h2>
+    <p>Guardamos los datos el tiempo necesario para atender la solicitud y cumplir obligaciones legales. Los formularios viajan cifrados (HTTPS) y el acceso a la información está restringido.</p>
+    <h2>6. Cookies</h2>
+    <p>{% if cfg.GA4_ID %}Usamos cookies de analítica (Google Analytics) solo si las aceptas en el aviso de cookies. Puedes cambiar tu decisión borrando las cookies del navegador.{% else %}Este sitio no usa cookies de seguimiento. Solo usa una cookie técnica de sesión para proteger los formularios. El mapa de Google y el video de YouTube solo se cargan si haces clic en ellos.{% endif %}</p>
+    <h2>7. Vigencia</h2>
+    <p>Esta política rige desde su publicación y puede actualizarse; la versión vigente estará siempre en esta página.</p>
+  {% else %}
+    <h2>1. Data controller</h2>
+    <p><strong>{{ cfg.LEGAL_NAME }}</strong>{% if cfg.LEGAL_ID %} ({{ cfg.LEGAL_ID }}){% endif %}, {{ biz.street }}, {{ biz.locality }}, {{ biz.region }}, Colombia. Email: <a href="mailto:{{ biz.email }}">{{ biz.email }}</a>. Phone: <a href="tel:{{ biz.phone_e164 }}">{{ biz.phone_display }}</a>.</p>
+    <h2>2. Data we collect</h2>
+    <p>Only what you give us in the booking, order, tour or contact forms: name, email, phone, city and shipping address (for orders), dates and number of guests, and any comments you add. We do not collect sensitive data.</p>
+    <h2>3. Purpose</h2>
+    <p>To answer your request, manage bookings, orders and experiences, arrange payment and shipping, and contact you about them by WhatsApp, phone or email. We never sell or share your data with third parties for marketing.</p>
+    <h2>4. Your rights</h2>
+    <p>You may access, update, correct and delete your data, withdraw your consent, and file complaints with Colombia's Superintendence of Industry and Commerce. Write to <a href="mailto:{{ biz.email }}">{{ biz.email }}</a>; we answer queries within 10 business days and claims within 15 business days.</p>
+    <h2>5. Retention and security</h2>
+    <p>We keep data only as long as needed to handle your request and meet legal obligations. Forms are encrypted in transit (HTTPS) and access is restricted.</p>
+    <h2>6. Cookies</h2>
+    <p>{% if cfg.GA4_ID %}We use analytics cookies (Google Analytics) only if you accept them in the cookie notice.{% else %}This site uses no tracking cookies — only a technical session cookie to protect forms. The Google map and YouTube video load only if you click them.{% endif %}</p>
+  {% endif %}
+  </div>
+</section>
+{% endblock %}

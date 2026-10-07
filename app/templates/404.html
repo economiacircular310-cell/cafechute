@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "macros.html" import picture, icon with context %}
+{% block content %}
+<section class="thanks">
+  <div class="thanks__dandelion" aria-hidden="true">{{ dandelion() }}</div>
+  <div class="container thanks__inner">
+    <p class="kicker">404</p>
+    <h1 class="display display--md">{{ t('404.title') }}</h1>
+    <p class="lead">{{ t('404.text') }}</p>
+    <div class="btn-row btn-row--center">
+      <a class="btn btn--dark" href="{{ url_page('home') }}">{{ t('nav.home') }}</a>
+      <a class="btn btn--outline" href="{{ url_page('casa') }}">{{ t('nav.casa') }}</a>
+      <a class="btn btn--outline" href="{{ url_page('cafe') }}">{{ t('nav.cafe') }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

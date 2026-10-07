@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% set hero_slug = "casa-jardin" %}
+{% from "macros.html" import picture, icon with context %}
+{% block header_class %} site-header--overlay{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero__media">{{ picture('casa-jardin', sizes="100vw", priority=true) }}</div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="kicker kicker--light">{{ t('casa.kicker') }}</p>
+    <h1 class="display">{{ t('casa.h1') }}</h1>
+    <p class="hero__lead">{{ t('casa.lead') }}</p>
+    <div class="hero__ctas">
+      <a class="btn btn--cherry btn--lg" href="#reserva">{{ t('cta.book') }} {{ icon('arrow-right') }}</a>
+      <a class="btn btn--glass btn--lg" href="#habitaciones">{{ t('cta.see_rooms') }}</a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/live.html" %}
+
+{# ------------------------------------------------ Comodidades #}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">{{ t('casa.amenities') }}</h2>
+    <ul class="amenities">
+      {% for ic, label, _ in amenities %}
+      <li class="amenity reveal">{{ icon(ic) }}<span>{{ tr(label) }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# ------------------------------------------------ Habitaciones #}
+<section class="section section--parchment" id="habitaciones">
+  <div class="container">
+    <div class="rooms-band__head">
+      <h2 class="section-title">{{ t('casa.rooms') }}</h2>
+    </div>
+    <div class="rooms-list">
+      {% for room in rooms %}
+      <article class="room reveal" id="room-{{ room.id }}">
+        <div class="room__gallery">
+          {% if room.photos %}
+          <button class="room__main" type="button" data-gallery="{{ room.id }}" data-index="0">
+            {{ picture(room.photos[0], sizes="(min-width: 1000px) 560px, 92vw") }}
+            <span class="chip chip--glass">{{ t('photo_n', i=1, n=room.photos|length) }}</span>
+          </button>
+          <div class="room__thumbs">
+            {% for p in room.photos[1:4] %}
+            <button type="button" data-gallery="{{ room.id }}" data-index="{{ loop.index }}">{{ picture(p, sizes="140px") }}</button>
+            {% endfor %}
+          </div>
+          <template data-gallery-items="{{ room.id }}">
+            {% for p in room.photos %}{% set im = img(p) %}<a href="{{ url_for('static', filename='img/' + im.variants[-1].file) }}" data-caption="{{ im.alt[lang] }}"></a>{% endfor %}
+          </template>
+          {% else %}
+          <div class="room__soon">{{ dandelion(cls="dandelion dandelion--soon") }}<span>{{ t('photos_soon') }}</span></div>
+          {% endif %}
+        </div>
+        <div class="room__info">
+          <h3>{{ tr(room.name) }}</h3>
+          <p class="room__cap">{{ icon('users') }} {{ t('guests_up_to', n=room.capacity) }}</p>
+          <p>{{ tr(room.summary) }}</p>
+          <ul class="ticks">{% for f in tr(room.features) %}<li>{{ icon('check') }}{{ f }}</li>{% endfor %}</ul>
+          <table class="rates">
+            <caption class="sr-only">{{ tr(room.name) }} — COP</caption>
+            <tbody>
+              <tr><th scope="row">{{ t('solo') }}</th><td>{{ cop(room.solo) }}</td></tr>
+              <tr><th scope="row">{{ t('pair') }}</th><td>{{ cop(room.pair) }}</td></tr>
+              <tr><th scope="row">{{ t('extra') }}</th><td>{% if room.extra and room.capacity > 2 %}+{{ cop(room.extra) }}{% else %}<span class="muted">{{ t('na') }}</span>{% endif %}</td></tr>
+            </tbody>
+          </table>
+          <a class="btn btn--dark" href="{{ url_page('reservar', room=room.id) }}">{{ t('cta.book_room') }} {{ icon('arrow-right') }}</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="muted small rates-note">{{ tr(rate_note) if rate_note else '' }}</p>
+  </div>
+</section>
+
+{# ------------------------------------------------ Espacios #}
+<section class="section" id="espacios">
+  <div class="container">
+    <h2 class="section-title reveal">{{ t('casa.spaces') }}</h2>
+    <div class="spaces" data-tabs>
+      <div class="spaces__tabs" role="tablist">
+        {% for s in spaces %}
+        <button role="tab" type="button" id="tab-{{ s.id }}" aria-controls="panel-{{ s.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" {% if not loop.first %}tabindex="-1"{% endif %}>{{ tr(s.name) }}</button>
+        {% endfor %}
+      </div>
+      {% for s in spaces %}
+      <div class="spaces__panel" role="tabpanel" id="panel-{{ s.id }}" aria-labelledby="tab-{{ s.id }}" {% if not loop.first %}hidden{% endif %}>
+        <div class="mosaic">
+          {% for p in s.photos %}
+          <button type="button" class="mosaic__item" data-gallery="space-{{ s.id }}" data-index="{{ loop.index0 }}">{{ picture(p, sizes="(min-width: 1000px) 33vw, 50vw") }}</button>
+          {% endfor %}
+        </div>
+        <template data-gallery-items="space-{{ s.id }}">
+          {% for p in s.photos %}{% set im = img(p) %}<a href="{{ url_for('static', filename='img/' + im.variants[-1].file) }}" data-caption="{{ im.alt[lang] }}"></a>{% endfor %}
+        </template>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ------------------------------------------------ Video (fachada: no carga YouTube hasta el clic) #}
+<section class="section section--espresso">
+  <div class="container video-band">
+    <h2 class="section-title section-title--light reveal">{{ t('casa.video') }}</h2>
+    <button class="video-facade" type="button" data-youtube="{{ biz.youtube_id }}" aria-label="{{ t('cta.play_video') }}">
+      <img src="https://i.ytimg.com/vi/{{ biz.youtube_id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+      <span class="video-facade__play">{{ icon('play') }}</span>
+    </button>
+  </div>
+</section>
+
+{# ------------------------------------------------ Reserva #}
+<section class="section section--parchment">
+  <div class="container">
+    {% include "partials/booking_form.html" %}
+  </div>
+</section>
+
+{# ------------------------------------------------ Políticas + FAQ #}
+<section class="section">
+  <div class="container faq-grid">
+    <div>
+      <h2 class="section-title">{{ t('casa.policies') }}</h2>
+      <dl class="policies">
+        {% for title, text, _ in policies %}<div><dt>{{ tr(title) }}</dt><dd>{{ tr(text) }}</dd></div>{% endfor %}
+      </dl>
+      <h2 class="section-title section-title--sm" id="como-llegar">{{ t('casa.where') }}</h2>
+      <p>{{ t('casa.where_text') }}</p>
+      <div class="btn-row">
+        <a class="btn btn--dark" href="{{ biz.directions }}" target="_blank" rel="noopener">{{ icon('map') }} {{ t('cta.directions') }}</a>
+      </div>
+    </div>
+    <div>
+      <h2 class="section-title">{{ t('casa.faq') }}</h2>
+      <div class="faq">
+        {% for q, a in faq %}
+        <details{% if loop.first %} open{% endif %}><summary>{{ tr(q) }}</summary><p>{{ tr(a) }}</p></details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/final_cta.html" %}
+{% endblock %}

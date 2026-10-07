@@ -1,0 +1,71 @@
+{# ------------------------------------------------------------------ Imagen responsive #}
+{% macro picture(slug, sizes="100vw", cls="", loading="lazy", priority=false, alt=None) -%}
+{% set im = img(slug) %}
+{% if im %}
+<img class="ph {{ cls }}" src="{{ url_for('static', filename='img/' + im.variants[-2 if im.variants|length > 1 else -1].file) }}"
+     srcset="{{ srcset(slug) }}" sizes="{{ sizes }}" width="{{ im.w }}" height="{{ im.h }}"
+     alt="{{ alt if alt is not none else im.alt[lang] }}" data-color="{{ im.color }}"
+     {% if priority %}fetchpriority="high" loading="eager"{% else %}loading="{{ loading }}"{% endif %} decoding="async">
+{% endif %}
+{%- endmacro %}
+
+{# ------------------------------------------------------------------ Icono del sprite #}
+{% macro icon(name, cls="") -%}
+<svg class="icon {{ cls }}" aria-hidden="true" focusable="false"><use href="#i-{{ name }}"></use></svg>
+{%- endmacro %}
+
+{# ------------------------------------------------------------------ Campos de formulario #}
+{% macro field(name, label, values, errors, type="text", required=true, autocomplete="", attrs="", hint="") -%}
+<div class="field{% if errors.get(name) %} field--error{% endif %}">
+  <label for="f-{{ name }}">{{ label }}{% if not required %} <span class="field__opt">({{ t('form.optional') }})</span>{% endif %}</label>
+  {% if type == "textarea" %}
+  <textarea id="f-{{ name }}" name="{{ name }}" rows="4" {% if required %}required{% endif %} {{ attrs|safe }}
+    {% if errors.get(name) %}aria-invalid="true" aria-describedby="e-{{ name }}"{% endif %}>{{ values.get(name, '') }}</textarea>
+  {% else %}
+  <input id="f-{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ values.get(name, '') }}"
+    {% if required %}required{% endif %} {% if autocomplete %}autocomplete="{{ autocomplete }}"{% endif %} {{ attrs|safe }}
+    {% if errors.get(name) %}aria-invalid="true" aria-describedby="e-{{ name }}"{% endif %}>
+  {% endif %}
+  {% if hint %}<p class="field__hint">{{ hint }}</p>{% endif %}
+  {% if errors.get(name) %}<p class="field__error" id="e-{{ name }}">{{ errors[name] }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro form_meta() -%}
+<input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+<div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+{%- endmacro %}
+
+{% macro consent(values, errors) -%}
+<div class="field field--check{% if errors.get('consent') %} field--error{% endif %}">
+  <input id="f-consent" type="checkbox" name="consent" value="1" required {% if values.get('consent') == '1' %}checked{% endif %}
+    {% if errors.get('consent') %}aria-invalid="true" aria-describedby="e-consent"{% endif %}>
+  <label for="f-consent">{{ t('form.consent') }} <a href="{{ url_page('privacidad') }}" target="_blank" rel="noopener">{{ t('form.privacy_link') }}</a>.</label>
+  {% if errors.get('consent') %}<p class="field__error" id="e-consent">{{ errors['consent'] }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro global_error_box(msg) -%}
+{% if msg %}<div class="alert" role="alert">{{ icon('alert') }}<p>{{ msg }}</p></div>{% endif %}
+{%- endmacro %}
+
+{# ------------------------------------------------------------------ Tarjeta de habitación #}
+{% macro room_card(room, cls="") -%}
+<article class="room-card {{ cls }}" id="room-{{ room.id }}" data-solo="{{ cop(room.solo) }}" data-pair="{{ cop(room.pair) }}">
+  <div class="room-card__media arch">
+    {% if room.photos %}
+      {{ picture(room.photos[0], sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 85vw") }}
+    {% else %}
+      <div class="room-card__soon">{{ dandelion(cls="dandelion dandelion--soon") }}<span>{{ t('photos_soon') }}</span></div>
+    {% endif %}
+    <span class="chip chip--glass">{{ icon('users') }} {{ t('guests_up_to', n=room.capacity) }}</span>
+  </div>
+  <div class="room-card__body">
+    <h3>{{ tr(room.name) }}</h3>
+    <p>{{ tr(room.summary) }}</p>
+    <p class="room-card__price"><span class="room-card__from">{{ t('from') }}</span>
+      <strong data-price>{{ cop(room.pair) }}</strong> <span class="room-card__per">COP · <span data-price-label>{{ t('pair') }}</span> · {{ t('per_night') }}</span></p>
+    <a class="link-arrow" href="{{ url_page('reservar', room=room.id) }}">{{ t('cta.book_room') }} {{ icon('arrow-right') }}</a>
+  </div>
+</article>
+{%- endmacro %}

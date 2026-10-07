@@ -1,0 +1,12 @@
+{% from "macros.html" import picture, icon with context %}
+<section class="final-cta">
+  <div class="final-cta__media" aria-hidden="true">{{ picture('atardecer', sizes="100vw", alt="") }}</div>
+  <div class="final-cta__dandelion" aria-hidden="true">{{ dandelion() }}</div>
+  <div class="container final-cta__inner">
+    <h2 class="display display--md">{{ t('home.final_title') }}</h2>
+    <div class="btn-row btn-row--center">
+      <a class="btn btn--cherry btn--lg" href="{{ url_page('reservar') }}">{{ t('cta.book') }} {{ icon('arrow-right') }}</a>
+      <a class="btn btn--glass btn--lg" href="{{ wa() }}" target="_blank" rel="noopener" data-track="whatsapp">{{ icon('whatsapp') }} {{ t('cta.whatsapp_short') }}</a>
+    </div>
+  </div>
+</section>

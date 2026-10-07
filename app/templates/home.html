@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% set hero_slug = "casa-panoramica" %}
+{% from "macros.html" import picture, icon, room_card with context %}
+{% block header_class %} site-header--overlay{% endblock %}
+
+{% block content %}
+{# ================================================================ HERO #}
+<section class="hero" data-hero>
+  <div class="hero__media">
+    {{ picture('casa-panoramica', sizes="100vw", cls="hero__img", priority=true) }}
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <canvas class="hero__seeds" aria-hidden="true" data-seeds></canvas>
+  <div class="hero__dandelion" aria-hidden="true">{{ dandelion() }}</div>
+
+  <div class="container hero__content">
+    <p class="kicker kicker--light reveal">{{ t('home.kicker') }}</p>
+    <h1 class="display hero__title">
+      <span class="line"><span>{{ t('home.h1_a') }}</span></span>
+      <span class="line"><em>{{ t('home.h1_b') }}</em></span>
+    </h1>
+    <p class="hero__lead reveal">{{ t('home.lead') }}</p>
+    <div class="hero__ctas reveal">
+      <a class="btn btn--cherry btn--lg" href="{{ url_page('reservar') }}">{{ t('cta.book') }} {{ icon('arrow-right') }}</a>
+      <a class="btn btn--glass btn--lg" href="{{ url_page('cafe') }}">{{ t('cta.coffee') }}</a>
+    </div>
+  </div>
+
+  <a class="hero__proof" href="{{ biz.google_maps }}" target="_blank" rel="noopener">
+    <span class="stars" aria-hidden="true">{% for _ in range(5) %}{{ icon('star') }}{% endfor %}</span>
+    <strong>{{ cfg.GOOGLE_RATING }}</strong> {{ t('rating_google') }} · {{ cfg.GOOGLE_REVIEWS }} {{ t('reviews') }}
+  </a>
+  <a class="hero__scroll" href="#vivir">{{ t('home.scroll') }} {{ icon('arrow-down') }}</a>
+</section>
+
+{# ================================================================ AHORA EN LA FINCA #}
+{% include "partials/live.html" %}
+
+{# ================================================================ DOS MANERAS #}
+<section class="section two-ways" id="vivir">
+  <div class="container">
+    <h2 class="section-title reveal">{{ t('home.two_ways') }}</h2>
+    <div class="two-ways__grid">
+      <a class="way reveal" href="{{ url_page('casa') }}">
+        <div class="way__media arch">{{ picture('piscina-vista', sizes="(min-width: 900px) 46vw, 92vw") }}</div>
+        <div class="way__body">
+          <span class="kicker">{{ icon('bed') }} Casa Chute</span>
+          <h3>{{ t('home.stay_title') }}</h3>
+          <p>{{ t('home.stay_text') }}</p>
+          <span class="link-arrow">{{ t('cta.see_rooms') }} {{ icon('arrow-right') }}</span>
+        </div>
+      </a>
+      <a class="way way--offset reveal" href="{{ url_page('cafe') }}">
+        <div class="way__media arch">{{ picture('prensa', sizes="(min-width: 900px) 46vw, 92vw") }}</div>
+        <div class="way__body">
+          <span class="kicker">{{ icon('coffee') }} Café Chute</span>
+          <h3>{{ t('home.coffee_title') }}</h3>
+          <p>{{ t('home.coffee_text') }}</p>
+          <span class="link-arrow">{{ t('cta.coffee') }} {{ icon('arrow-right') }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{# ================================================================ CIFRAS #}
+<section class="stats" aria-label="Casa Chute en cifras">
+  <div class="container stats__grid">
+    <div class="stat reveal"><span class="stat__num">{{ cfg.GOOGLE_RATING }}<small>★</small></span><span class="stat__label">{{ t('home.stat_rating') }} · {{ cfg.GOOGLE_REVIEWS }} {{ t('reviews') }}</span></div>
+    <div class="stat reveal"><span class="stat__num" data-count="{{ coffee.trees }}">{{ '{:,}'.format(coffee.trees).replace(',', '.' if lang == 'es' else ',') }}</span><span class="stat__label">{{ t('home.stat_trees') }}</span></div>
+    <div class="stat reveal"><span class="stat__num" data-count="{{ rooms|length }}">{{ rooms|length }}</span><span class="stat__label">{{ t('home.stat_rooms') }}</span></div>
+    <div class="stat reveal"><span class="stat__num">{{ biz.unesco_year }}</span><span class="stat__label">{{ t('home.stat_unesco') }}</span></div>
+  </div>
+</section>
+
+{# ================================================================ DEL GRANO A LA TAZA #}
+<section class="story" id="proceso" data-story>
+  <div class="story__topo" aria-hidden="true">{{ topo(seed=5) }}</div>
+  <div class="container story__head">
+    <p class="kicker kicker--gold">{{ t('home.process_kicker') }}</p>
+    <h2 class="section-title section-title--light">{{ t('home.process_title') }}</h2>
+    <p class="story__lead">{{ t('home.process_lead') }}</p>
+  </div>
+  <div class="container story__grid">
+    <div class="story__visual" aria-hidden="true">
+      <div class="lens" data-lens>
+        <svg class="lens__ring" viewBox="0 0 200 200"><circle class="lens__track" cx="100" cy="100" r="96"/><circle class="lens__progress" cx="100" cy="100" r="96" data-lens-progress/></svg>
+        <div class="lens__photos">
+          {% for step in process %}
+            <div class="lens__photo{% if loop.first %} is-active{% endif %}" data-lens-photo="{{ loop.index0 }}">{{ picture(step.photo, sizes="(min-width: 900px) 420px, 60vw", alt="") }}</div>
+          {% endfor %}
+        </div>
+        <div class="lens__cherry" data-cherry>{{ icon('cherry') }}</div>
+        <div class="lens__count"><span data-lens-num>01</span>/{{ '%02d' % process|length }}</div>
+      </div>
+    </div>
+    <ol class="story__steps">
+      {% for step in process %}
+      <li class="step" data-step="{{ loop.index0 }}">
+        <span class="step__num">{{ '%02d' % loop.index }}</span>
+        <h3 class="step__title">{{ tr(step.title) }}</h3>
+        <p>{{ tr(step.text) }}</p>
+        <div class="step__photo-mobile">{{ picture(step.photo, sizes="90vw") }}</div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ================================================================ HABITACIONES #}
+<section class="section rooms-band">
+  <div class="container rooms-band__head">
+    <div>
+      <p class="kicker">{{ t('home.rooms_kicker') }}</p>
+      <h2 class="section-title">{{ t('home.rooms_title') }} <em>{{ t('home.rooms_lead') }}</em></h2>
+    </div>
+    <div class="segmented" role="group" aria-label="{{ t('home.price_toggle') }}" data-price-toggle>
+      <span class="segmented__label">{{ t('home.price_toggle') }}</span>
+      <button type="button" data-mode="solo" aria-pressed="false">{{ t('solo') }}</button>
+      <button type="button" data-mode="pair" aria-pressed="true">{{ t('pair') }}</button>
+    </div>
+  </div>
+  <div class="rail" data-rail>
+    <div class="rail__track" data-rail-track tabindex="0" aria-label="{{ t('casa.rooms') }}">
+      {% for room in rooms %}{{ room_card(room, cls="rail__item") }}{% endfor %}
+    </div>
+    <div class="container rail__controls">
+      <button class="icon-btn" type="button" data-rail-prev>{{ icon('chevron-left') }}<span class="sr-only">{{ t('prev') }}</span></button>
+      <button class="icon-btn" type="button" data-rail-next>{{ icon('chevron-right') }}<span class="sr-only">{{ t('next') }}</span></button>
+      <a class="btn btn--outline" href="{{ url_page('casa', anchor='habitaciones') }}">{{ t('cta.see_rooms') }}</a>
+    </div>
+  </div>
+</section>
+
+{# ================================================================ BARISTA SHOW TOUR #}
+<section class="section tour-band">
+  <div class="container tour-band__grid">
+    <div class="collage reveal" aria-hidden="true">
+      <div class="collage__a">{{ picture('barista', sizes="(min-width: 900px) 30vw, 70vw", alt="") }}</div>
+      <div class="collage__b">{{ picture('cata', sizes="(min-width: 900px) 22vw, 50vw", alt="") }}</div>
+      <div class="collage__c">{{ picture('chemex', sizes="(min-width: 900px) 20vw, 45vw", alt="") }}</div>
+    </div>
+    <div class="tour-band__text reveal">
+      <p class="kicker">{{ t('home.tour_kicker') }}</p>
+      <h2 class="section-title">{{ tour.name }}</h2>
+      <p class="lead">{{ tr(tour.summary) }}</p>
+      <ul class="chips">
+        <li class="chip">{{ icon('users') }} {{ t('exp.group', a=tour.min_people, b=tour.max_people) }}</li>
+        <li class="chip">{{ icon('clock') }} {{ t('exp.duration', h=tour.min_hours) }}</li>
+        <li class="chip chip--cherry">{{ cop(tour.person) }} COP {{ t('exp.price_person') }}</li>
+      </ul>
+      <a class="btn btn--dark" href="{{ url_page('experiencias') }}">{{ t('cta.request_tour') }} {{ icon('arrow-right') }}</a>
+    </div>
+  </div>
+</section>
+
+{# ================================================================ AÑO EN LA FINCA #}
+<section class="section year">
+  <div class="container year__grid">
+    <div class="year__ring reveal">
+      {{ harvest_ring(lang) }}
+      <div class="year__center">
+        <span class="year__now">{{ t('home.today') }}</span>
+        <strong>{{ harvest.label }}</strong>
+      </div>
+    </div>
+    <div class="year__text reveal">
+      <p class="kicker">{{ t('home.harvest') }}</p>
+      <h2 class="section-title">{{ t('home.calendar_title') }}</h2>
+      <p class="lead">{{ t('home.calendar_lead') }}</p>
+      <h3 class="notes-title">{{ t('cafe.notes_lead') }}</h3>
+      <ul class="notes">
+        {% for note in coffee.notes %}
+        <li class="note note--{{ note.id }}"><span class="note__dot" aria-hidden="true"></span>{{ tr(note.name) }}</li>
+        {% endfor %}
+      </ul>
+      <a class="link-arrow" href="{{ url_page('cafe') }}">{{ t('cta.coffee') }} {{ icon('arrow-right') }}</a>
+    </div>
+  </div>
+</section>
+
+{# ================================================================ UBICACIÓN #}
+<section class="section location">
+  <div class="container location__grid">
+    <div class="location__map reveal">{{ picture('mapa-ubicacion', sizes="(min-width: 900px) 50vw, 92vw") }}</div>
+    <div class="location__text reveal">
+      <p class="kicker">{{ icon('pin') }} {{ biz.locality }}, {{ biz.region }}</p>
+      <h2 class="section-title">{{ t('home.location_title') }}</h2>
+      <p class="lead">{{ t('home.location_text') }}</p>
+      <div class="btn-row">
+        <a class="btn btn--dark" href="{{ biz.directions }}" target="_blank" rel="noopener">{{ icon('map') }} {{ t('cta.directions') }}</a>
+        <a class="btn btn--outline" href="{{ biz.google_maps }}" target="_blank" rel="noopener">{{ icon('star') }} {{ t('cta.reviews') }}</a>
+      </div>
+      <p class="muted small">Plus Code: {{ biz.plus_code }}</p>
+    </div>
+  </div>
+</section>
+
+{# ================================================================ INSTAGRAM #}
+<section class="insta">
+  <div class="insta__strip" aria-hidden="true">
+    {% set tiles = ['atardecer', 'kiosko-vista', 'taza-montana', 'mirador-4', 'cosecha-manos', 'suite-balcon', 'bolsas', 'mecedora'] %}
+    {% for s in tiles + tiles %}
+      <div class="insta__tile">{{ picture(s, sizes="(min-width: 900px) 14vw, 40vw", alt="") }}</div>
+    {% endfor %}
+  </div>
+  <div class="container insta__cta">
+    <h2 class="section-title section-title--light">{{ t('home.insta_title') }}</h2>
+    <a class="btn btn--glass" href="{{ biz.instagram }}" target="_blank" rel="noopener">{{ icon('instagram') }} {{ biz.instagram_handle }}</a>
+  </div>
+</section>
+
+{# ================================================================ CTA FINAL #}
+{% include "partials/final_cta.html" %}
+{% endblock %}

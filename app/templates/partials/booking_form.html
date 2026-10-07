@@ -1,0 +1,64 @@
+{% from "macros.html" import icon, field, form_meta, consent, global_error_box with context %}
+{% set errors = errors or {} %}
+{% set rooms_js = [] %}
+{% for r in rooms %}{% set _ = rooms_js.append({"id": r.id, "name": tr(r.name), "capacity": r.capacity, "solo": r.solo, "pair": r.pair, "extra": r.extra}) %}{% endfor %}
+<form class="booking" id="reserva" method="post" action="{{ url_page('reservar') }}" data-booking
+      data-rooms='{{ rooms_js|tojson }}' data-wa="{{ biz.whatsapp }}">
+  {{ form_meta() }}
+  {{ global_error_box(global_error) }}
+  <div class="booking__grid">
+    <fieldset class="booking__stay">
+      <legend class="booking__legend">{{ icon('calendar') }} {{ t('book.title') }}</legend>
+      <p class="muted small">{{ t('book.lead') }}</p>
+
+      <div class="field{% if errors.get('room') %} field--error{% endif %}">
+        <label for="f-room">{{ t('book.room') }}</label>
+        <div class="select">
+          <select id="f-room" name="room" required data-room>
+            <option value="">—</option>
+            {% for r in rooms %}
+            <option value="{{ r.id }}"{% if booking.get('room') == r.id %} selected{% endif %}>{{ tr(r.name) }} · {{ t('guests_up_to', n=r.capacity) }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% if errors.get('room') %}<p class="field__error">{{ errors['room'] }}</p>{% endif %}
+      </div>
+
+      <div class="field-row">
+        {{ field('check_in', t('book.checkin'), booking, errors, type="date", attrs='data-checkin') }}
+        {{ field('check_out', t('book.checkout'), booking, errors, type="date", attrs='data-checkout') }}
+      </div>
+
+      <div class="field{% if errors.get('guests') %} field--error{% endif %}">
+        <label for="f-guests">{{ t('book.guests') }}</label>
+        <div class="stepper">
+          <button type="button" class="icon-btn icon-btn--sm" data-step-down aria-label="−">−</button>
+          <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" max="4" value="{{ booking.get('guests', '2') }}" required data-guests>
+          <button type="button" class="icon-btn icon-btn--sm" data-step-up aria-label="+">+</button>
+        </div>
+        <p class="field__hint" data-cap-hint></p>
+        {% if errors.get('guests') %}<p class="field__error">{{ errors['guests'] }}</p>{% endif %}
+      </div>
+    </fieldset>
+
+    <aside class="booking__summary" aria-live="polite" data-summary>
+      <p class="booking__room" data-sum-room>{{ t('book.room') }}</p>
+      <p class="booking__calc" data-sum-calc>{{ t('book.choose_dates') }}</p>
+      <p class="booking__total"><span>{{ t('book.total') }}</span><strong data-sum-total>—</strong></p>
+      <p class="muted small">{{ t('book.estimate_note') }}</p>
+      <a class="btn btn--glass btn--block" href="{{ wa() }}" target="_blank" rel="noopener" data-sum-wa data-track="whatsapp">{{ icon('whatsapp') }} {{ t('cta.via_whatsapp') }}</a>
+    </aside>
+
+    <fieldset class="booking__details">
+      <legend class="booking__legend">{{ t('book.your_details') }}</legend>
+      {{ field('name', t('form.name'), booking, errors, autocomplete="name", attrs='maxlength="120"') }}
+      <div class="field-row">
+        {{ field('email', t('form.email'), booking, errors, type="email", required=false, autocomplete="email") }}
+        {{ field('phone', t('form.phone'), booking, errors, type="tel", required=false, autocomplete="tel") }}
+      </div>
+      {{ field('message', t('form.notes'), booking, errors, type="textarea", required=false, attrs='maxlength="1500"') }}
+      {{ consent(booking, errors) }}
+      <button class="btn btn--cherry btn--lg btn--block" type="submit">{{ t('cta.send_request') }} {{ icon('arrow-right') }}</button>
+    </fieldset>
+  </div>
+</form>

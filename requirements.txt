@@ -1,0 +1,7 @@
+flask>=3.1,<4
+flask-compress>=1.15
+waitress>=3.0                                  # servidor WSGI para Windows / pruebas locales
+gunicorn>=22; sys_platform != "win32"          # servidor WSGI en el VPS Linux
+# Solo para regenerar imágenes (tools/build_images.py) y para las pruebas:
+pillow>=11
+pytest>=8

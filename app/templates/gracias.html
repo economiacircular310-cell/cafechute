@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "macros.html" import icon with context %}
+{% block content %}
+<section class="thanks">
+  <div class="thanks__dandelion" aria-hidden="true">{{ dandelion() }}</div>
+  <div class="container thanks__inner">
+    <span class="thanks__check">{{ icon('check') }}</span>
+    <h1 class="display display--md">{{ t('thanks.h1') }}</h1>
+    {% if last %}<p class="thanks__ref">{{ t('thanks.ref') }}: <strong>#{{ last.id }}</strong></p>{% endif %}
+    <p class="lead">{{ t('thanks.lead') }}</p>
+    <div class="btn-row btn-row--center">
+      <a class="btn btn--cherry btn--lg" href="{{ wa_summary }}" target="_blank" rel="noopener" data-track="whatsapp">{{ icon('whatsapp') }} {{ t('cta.whatsapp') }}</a>
+      <a class="btn btn--outline btn--lg" href="{{ url_page('home') }}">{{ t('cta.back_home') }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

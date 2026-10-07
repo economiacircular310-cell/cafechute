@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% set hero_slug = "barista" %}
+{% from "macros.html" import picture, icon, field, form_meta, consent, global_error_box with context %}
+{% block header_class %} site-header--overlay{% endblock %}
+{% block wa_link %}{{ wa('wa.tour') }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero__media">{{ picture('barista', sizes="100vw", priority=true) }}</div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="kicker kicker--light">{{ t('exp.kicker') }}</p>
+    <h1 class="display">{{ t('exp.h1') }}</h1>
+    <p class="hero__lead">{{ t('exp.lead') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container tour">
+    <div class="tour__intro reveal">
+      <p class="kicker">{{ t('home.tour_kicker') }}</p>
+      <h2 class="section-title">{{ tour.name }}</h2>
+      <p class="lead">{{ tr(tour.summary) }}</p>
+      <div class="price-pair">
+        <div><strong>{{ cop(tour.person) }}</strong><span>COP {{ t('exp.price_person') }}</span></div>
+        <div><strong>{{ cop(tour.pair) }}</strong><span>COP {{ t('exp.price_pair') }}</span></div>
+      </div>
+      <ul class="chips">
+        <li class="chip">{{ icon('users') }} {{ t('exp.group', a=tour.min_people, b=tour.max_people) }}</li>
+        <li class="chip">{{ icon('clock') }} {{ t('exp.duration', h=tour.min_hours) }}</li>
+      </ul>
+    </div>
+    <ol class="moments">
+      {% for title, text in tour.moments[lang] %}
+      <li class="moment reveal"><span class="moment__num">{{ '%02d' % loop.index }}</span><h3>{{ title }}</h3><p>{{ text }}</p></li>
+      {% endfor %}
+    </ol>
+  </div>
+  <div class="container">
+    <div class="mosaic mosaic--tour">
+      {% for p in tour.photos %}
+      <button type="button" class="mosaic__item" data-gallery="tour" data-index="{{ loop.index0 }}">{{ picture(p, sizes="(min-width: 1000px) 33vw, 50vw") }}</button>
+      {% endfor %}
+    </div>
+    <template data-gallery-items="tour">
+      {% for p in tour.photos %}{% set im = img(p) %}<a href="{{ url_for('static', filename='img/' + im.variants[-1].file) }}" data-caption="{{ im.alt[lang] }}"></a>{% endfor %}
+    </template>
+  </div>
+</section>
+
+<section class="section section--parchment" id="solicitud">
+  <div class="container tour-form">
+    <div>
+      <h2 class="section-title">{{ t('cta.request_tour') }}</h2>
+      <div class="tour-calc" data-tour data-person="{{ tour.person }}" data-pair="{{ tour.pair }}" data-min="{{ tour.min_people }}" data-max="{{ tour.max_people }}">
+        <p class="muted">{{ t('exp.calc') }}</p>
+        <p class="tour-calc__total"><strong data-tour-total>—</strong> COP</p>
+        <p class="muted small">{{ t('book.estimate_note') }}</p>
+      </div>
+    </div>
+    <form method="post" action="{{ url_page('experiencias') }}#solicitud" class="form-card">
+      {{ form_meta() }}
+      {{ global_error_box(global_error) }}
+      <div class="field-row">
+        <div class="field{% if errors.get('people') %} field--error{% endif %}">
+          <label for="f-people">{{ t('form.people') }}</label>
+          <div class="stepper">
+            <button type="button" class="icon-btn icon-btn--sm" data-step-down aria-label="−">−</button>
+            <input id="f-people" name="people" type="number" inputmode="numeric" min="{{ tour.min_people }}" max="{{ tour.max_people }}" value="{{ req.get('people', '4') }}" required data-people>
+            <button type="button" class="icon-btn icon-btn--sm" data-step-up aria-label="+">+</button>
+          </div>
+          {% if errors.get('people') %}<p class="field__error">{{ errors['people'] }}</p>{% endif %}
+        </div>
+        {{ field('date', t('form.date'), req, errors, type="date", attrs='data-min-today') }}
+      </div>
+      {{ field('name', t('form.name'), req, errors, autocomplete="name") }}
+      <div class="field-row">
+        {{ field('email', t('form.email'), req, errors, type="email", required=false, autocomplete="email") }}
+        {{ field('phone', t('form.phone'), req, errors, type="tel", required=false, autocomplete="tel") }}
+      </div>
+      {{ field('message', t('form.notes'), req, errors, type="textarea", required=false) }}
+      {{ consent(req, errors) }}
+      <button class="btn btn--cherry btn--lg btn--block" type="submit">{{ t('cta.send_request') }} {{ icon('arrow-right') }}</button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split__media arch reveal">{{ picture('mirador-4', sizes="(min-width: 900px) 45vw, 92vw") }}</div>
+    <div class="split__text reveal">
+      <h2 class="section-title">{{ t('exp.landscape_title') }}</h2>
+      <p class="lead">{{ t('exp.landscape_text') }}</p>
+      <a class="link-arrow" href="{{ url_page('casa', anchor='espacios') }}">{{ t('casa.spaces') }} {{ icon('arrow-right') }}</a>
+    </div>
+  </div>
+  <div class="container split split--reverse">
+    <div class="split__media arch reveal">{{ picture('cosecha-manos', sizes="(min-width: 900px) 45vw, 92vw") }}</div>
+    <div class="split__text reveal">
+      <h2 class="section-title">{{ t('exp.harvest_title') }}</h2>
+      <p class="lead">{{ t('exp.harvest_text') }}</p>
+      <p class="chip{% if harvest.active %} chip--cherry{% endif %}">{{ icon('cherry') }} {{ harvest.label }}</p>
+    </div>
+  </div>
+</section>
+
+{% include "partials/final_cta.html" %}
+{% endblock %}

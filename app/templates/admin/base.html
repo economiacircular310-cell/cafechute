@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}Panel{% endblock %} · Casa Chute</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon-32.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+<header class="adm-head">
+  <a class="adm-brand" href="{{ url_for('admin.dashboard') }}">Casa Chute · <span>Panel</span></a>
+  {% if session.get('admin') %}
+  <nav>
+    <a href="/es/" target="_blank" rel="noopener">Ver web</a>
+    <a href="{{ url_for('admin.export_csv') }}">Exportar CSV</a>
+    <form method="post" action="{{ url_for('admin.logout') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button type="submit">Salir</button></form>
+  </nav>
+  {% endif %}
+</header>
+<main class="adm-main">{% block content %}{% endblock %}</main>
+</body>
+</html>

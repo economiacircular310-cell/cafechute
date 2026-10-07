@@ -1,0 +1,135 @@
+{% from "macros.html" import icon with context %}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ meta_title }}</title>
+  {% if meta_description %}<meta name="description" content="{{ meta_description }}">{% endif %}
+  {% if cfg.DEMO_MODE %}<meta name="robots" content="noindex, nofollow">{% elif noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+  {% for hl, href in hreflangs %}<link rel="alternate" hreflang="{{ hl }}" href="{{ href }}">
+  {% endfor %}
+  <meta name="theme-color" content="#1f130d">
+  <meta name="color-scheme" content="light">
+
+  {# Open Graph / redes: así se ve el enlace al compartirlo por WhatsApp o Facebook #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casa Chute · Café Chute">
+  <meta property="og:locale" content="{{ 'es_CO' if lang == 'es' else 'en_US' }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  {% if meta_description %}<meta property="og:description" content="{{ meta_description }}">{% endif %}
+  {% if canonical %}<meta property="og:url" content="{{ canonical }}">{% endif %}
+  {% if og_image %}<meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ meta_title }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="48x48">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon-32.png') }}" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon-180.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+
+  <link rel="preload" href="{{ url_for('static', filename='fonts/fraunces-normal-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  {% if hero_slug %}<link rel="preload" as="image" imagesrcset="{{ srcset(hero_slug) }}" imagesizes="100vw" fetchpriority="high">{% endif %}
+  {% block head %}{% endblock %}
+  {% if json_ld %}<script type="application/ld+json">{{ json_ld|safe }}</script>{% endif %}
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body class="page-{{ page }}" data-lang="{{ lang }}"{% if cfg.GA4_ID %} data-ga="{{ cfg.GA4_ID }}"{% endif %}>
+{% include "partials/icons.html" %}
+<a class="skip" href="#main">{{ t('nav.skip') }}</a>
+
+<header class="site-header{% block header_class %}{% endblock %}" data-header>
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ url_page('home') }}" aria-label="Casa Chute — {{ t('nav.home') }}">
+      <span class="brand__logo" aria-hidden="true"></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Principal" data-nav>
+      <ul class="nav__list">
+        {% for key in ('casa', 'cafe', 'experiencias', 'historia', 'contacto') %}
+        <li><a href="{{ url_page(key) }}"{% if page == key %} aria-current="page"{% endif %}>{{ t('nav.' + key) }}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="nav__extra">
+        <a class="nav__lang" href="{{ other_lang_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">
+          <span class="sr-only">{{ t('nav.lang') }}</span><span aria-hidden="true">{{ t('nav.lang_short') }}</span></a>
+        <a class="btn btn--cherry btn--sm" href="{{ url_page('reservar') }}">{{ t('nav.reservar') }}</a>
+      </div>
+      <div class="nav__mobile-footer">
+        <a href="{{ wa() }}" rel="noopener" target="_blank">{{ icon('whatsapp') }} {{ biz.phone_display }}</a>
+        <a href="{{ biz.instagram }}" rel="noopener" target="_blank">{{ icon('instagram') }} {{ biz.instagram_handle }}</a>
+      </div>
+    </nav>
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
+      <span class="nav-toggle__open">{{ icon('menu') }}<span class="sr-only">{{ t('nav.menu') }}</span></span>
+      <span class="nav-toggle__close">{{ icon('close') }}<span class="sr-only">{{ t('nav.close') }}</span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__topo">{{ topo(seed=11) }}</div>
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <span class="brand__logo brand__logo--lg" aria-hidden="true"></span>
+      <p>{{ t('footer.tagline') }}</p>
+      <p class="site-footer__tag">{{ tr(biz.tagline) }}</p>
+    </div>
+    <nav aria-label="{{ t('footer.explore') }}">
+      <h2 class="site-footer__title">{{ t('footer.explore') }}</h2>
+      <ul>
+        {% for key in ('casa', 'reservar', 'cafe', 'experiencias', 'historia') %}
+        <li><a href="{{ url_page(key) }}">{{ t('nav.' + key) }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="site-footer__title">{{ t('footer.contact') }}</h2>
+      <ul class="contact-list">
+        <li><a href="{{ wa() }}" target="_blank" rel="noopener">{{ icon('whatsapp') }} {{ biz.phone_display }}</a></li>
+        <li><a href="tel:{{ biz.phone_e164 }}">{{ icon('phone') }} {{ biz.phone_display }}</a></li>
+        <li><a href="mailto:{{ biz.email }}">{{ icon('mail') }} {{ biz.email }}</a></li>
+        <li><a href="{{ biz.google_maps }}" target="_blank" rel="noopener">{{ icon('pin') }} {{ biz.street }}, {{ biz.locality }}, {{ biz.region }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="site-footer__title">{{ t('footer.follow') }}</h2>
+      <ul class="contact-list">
+        <li><a href="{{ biz.instagram }}" target="_blank" rel="noopener">{{ icon('instagram') }} {{ biz.instagram_handle }}</a></li>
+        <li><a href="{{ biz.facebook }}" target="_blank" rel="noopener">{{ icon('facebook') }} Casa Chute</a></li>
+      </ul>
+      <p class="site-footer__harvest">{{ icon('cherry') }} {{ harvest.label }}</p>
+    </div>
+  </div>
+  <div class="container site-footer__legal">
+    <p>© {{ year }} {{ cfg.LEGAL_NAME }}. {{ t('footer.rights') }}{% if cfg.RNT_NUMBER %} · {{ t('footer.rnt') }}: {{ cfg.RNT_NUMBER }}{% endif %}</p>
+    <p><a href="{{ url_page('privacidad') }}">{{ t('footer.privacy') }}</a> · <a href="{{ other_lang_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ t('nav.lang') }}</a></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="{% block wa_link %}{{ wa() }}{% endblock %}" target="_blank" rel="noopener" data-track="whatsapp">
+  {{ icon('whatsapp') }}<span>{{ t('cta.whatsapp') }}</span>
+</a>
+
+{% if cfg.GA4_ID %}
+<div class="cookie" role="dialog" aria-live="polite" aria-label="Cookies" hidden data-cookie>
+  <p>{{ t('cookies.text') }} <a href="{{ url_page('privacidad') }}">{{ t('footer.privacy') }}</a></p>
+  <div><button class="btn btn--ghost-dark btn--sm" type="button" data-cookie-reject>{{ t('cookies.reject') }}</button>
+       <button class="btn btn--cherry btn--sm" type="button" data-cookie-accept>{{ t('cookies.accept') }}</button></div>
+</div>
+{% endif %}
+
+<dialog class="lightbox" data-lightbox aria-label="{{ t('gallery') }}">
+  <button class="lightbox__close" type="button" data-lb-close>{{ icon('close') }}<span class="sr-only">{{ t('nav.close') }}</span></button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" data-lb-prev>{{ icon('chevron-left') }}<span class="sr-only">{{ t('prev') }}</span></button>
+  <figure><img alt="" data-lb-img><figcaption data-lb-cap></figcaption></figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" data-lb-next>{{ icon('chevron-right') }}<span class="sr-only">{{ t('next') }}</span></button>
+</dialog>
+</body>
+</html>
